@@ -1,0 +1,49 @@
+---
+export const prerender = true
+const { color, text } = Astro.props
+
+const textColor = {
+    'cyan' : 'text-cyan-800 dark:text-cyan-200  ',
+    'pink' : 'text-pink-800 dark:text-pink-200  ',
+    'yellow' : 'text-yellow-800 dark:text-yellow-200 ',
+    'green' : 'text-green-600 dark:text-green-400  hover:dark:text-green-200',
+    'red' : 'text-red-600 dark:text-red-400  hover:dark:text-red-200',
+    'blue' : 'text-blue-600 dark:text-blue-400  hover:dark:text-blue-200',
+    'purple' : 'text-purple-600 dark:text-purple-400  hover:dark:text-purple-200',
+    'indigo' : 'text-indigo-600 dark:text-indigo-400  hover:dark:text-indigo-200',
+}
+
+const backgroundColor = {
+    'cyan' : 'bg-cyan-50 dark:bg-cyan-950 hover:dark:bg-cyan-800',
+    'pink' : 'bg-pink-50  dark:bg-pink-950 hover:dark:bg-pink-800',
+    'yellow' : 'bg-yellow-50 dark:bg-yellow-950 hover:dark:bg-yellow-800',
+    'green' : 'bg-green-100 hover:bg-green-50 dark:bg-green-950 hover:dark:bg-green-800',
+    'red' : 'bg-red-100 hover:bg-red-50 dark:bg-red-950 hover:dark:bg-red-800',
+    'blue' : 'bg-blue-100 hover:bg-blue-50 dark:bg-blue-950 hover:dark:bg-blue-800',
+    'purple' : 'bg-purple-100 hover:bg-purple-50 dark:bg-purple-950 hover:dark:bg-purple-800',
+    'indigo' : 'bg-indigo-100 hover:bg-indigo-50 dark:bg-indigo-950 hover:dark:bg-indigo-800',
+}
+
+const borderColor = {
+    'cyan' : 'border-cyan-500 dark:border-cyan-800',
+    'pink' : 'border-pink-500 dark:border-pink-800',
+    'yellow' : 'border-yellow-500 dark:border-yellow-900',
+    'green' : 'border-green-500 dark:border-green-800',
+    'red' : 'border-red-500 dark:border-red-800',
+    'blue' : 'border-blue-500 dark:border-blue-800',
+    'purple' : 'border-purple-500 dark:border-purple-800',
+    'indigo' : 'border-indigo-500 dark:border-indigo-800',
+}
+
+---
+<div class={`
+font-title
+duration-700 ease-in-out
+hover:dark:shadow-sm
+hover:dark:shadow-slate-800
+cursor-default
+${backgroundColor[color]}
+${borderColor[color]}
+font-sans border dark:border-none rounded-lg px-2 py-1`}>
+    <p class=`${textColor[color]}`>{text}</p> 
+</div>

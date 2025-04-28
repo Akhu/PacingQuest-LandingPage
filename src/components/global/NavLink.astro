@@ -1,0 +1,53 @@
+---
+export const prerender = true
+const { linkUrl } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+<a class="
+px-4
+py-2
+
+flex
+flex-row
+flex-shrink-0
+items-baseline
+space-x-2
+shadow-sm
+bg-indigo-50
+
+text-slate-200
+dark:text-zinc-200
+dark:bg-zinc-800
+
+hover:bg-indigo-100
+hover:text-indigo-950
+
+
+dark:hover:bg-zinc-200
+dark:hover:text-zinc-800
+
+
+text-center
+text-md
+rounded-full
+font-sans
+font-regular
+
+border-2
+border-transparent
+
+transition-all
+
+lg:text-slate-700
+lg:hover:text-white
+lg:hover:bg-indigo-600
+  lg:hover:shadow-md
+lg:dark:hover:bg-zinc-200
+ 
+
+
+
+" href={linkUrl}>
+    <slot/>
+</a>

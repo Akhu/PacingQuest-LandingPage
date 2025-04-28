@@ -1,0 +1,40 @@
+---
+const privacyPoints = [
+  {
+    title: "Pas de création de compte, pas besoin de réseau.",
+    icon: "/images/pacingquest/IdentificationCard_1024px_01_01.png",
+    description: "Utilisez l'application même sans connexion internet, aucune donnée n'est envoyée à des serveurs distants."
+  },
+  {
+    title: "Les fonctionnalités IA se font à 100% sur votre appareil.",
+    icon: "/images/pacingquest/Dizzy.png",
+    description: "L'intelligence artificielle fonctionne localement sur votre téléphone, garantissant la confidentialité de vos données."
+  },
+  {
+    title: "Récupérez vos données en format tableur, vous êtes en total contrôle de vos données.",
+    icon: "/images/pacingquest/Floppy disk.png",
+    description: "Exportez facilement vos données pour les partager avec vos médecins ou les analyser vous-même."
+  }
+];
+---
+
+<section id="privacy" class="section bg-indigo-50">
+  <h2 class="section-title">La santé, c'est privée.</h2>
+  <p class="section-subtitle">Nous prenons la confidentialité de vos données très au sérieux</p>
+
+  <div class="max-w-3xl mx-auto mt-12">
+    {privacyPoints.map(point => (
+      <div class="flex items-start mb-8 bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex-shrink-0 mr-4">
+          <div class="w-12 h-12 flex items-center justify-center bg-indigo-100 rounded-full p-2">
+            <img src={point.icon} alt={point.title} class="w-full h-full object-contain" />
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">{point.title}</h3>
+          <p class="text-gray-600">{point.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

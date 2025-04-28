@@ -1,0 +1,117 @@
+---
+export const prerender = true
+import PrimaryButton from '../global/PrimaryButton.astro'
+import SecondaryButton from '../global/SecondaryButton.astro'
+---
+<div class="flex flex-col md:ml-4 mt-3 space-y-4 md:space-y-5 lg:space-y-8">
+  <div class="flex flex-col space-y-1">
+    <div class="font-sans text-sm text-center md:text-left text-slate-800 dark:text-zinc-300">Hello ! ⚡️ Je suis Anthony <a href="#" id="hero-title-switcher" class="text-slate-800 dark:text-zinc-200"> <i class="fa-regular fa-arrows-rotate fa-xs"></i></a></div>
+      <h1 id="hero-title" class="
+    dark:text-zinc-50
+
+    font-title
+    text-3xl
+    text-slate-700
+    font-black
+
+    leading-relaxed
+    tracking-wider
+    text-center
+    
+
+    md:text-4xl
+    md:text-left
+    md:leading-normal
+    md:tracking-normal
+    
+    lg:text-4xl
+    lg:leading-normal
+    lg:tracking-wide
+    lg:mb-6 
+  
+    xl:leading-tight
+    xl:tracking-normal
+    xl:mb-4
+    xl:text-5xl
+
+    
+    2xl:leading-normal
+    
+    ">Je fais avancer des projets. </h1>
+
+  </div>
+  <div class="lg:flex flex-col items-center lg:items-start hidden">
+    <ul class="text-md flex flex-col space-y-4 items-start text-slate-800 dark:text-zinc-300">
+      <li>
+        <i class="p-2 align-middle rounded-full bg-green-100 fa-solid fa-check text-green-800 mr-3"></i>Developpement d'app mobile & web
+      </li>
+      <li class="">
+        <i class="p-2 align-middle rounded-full bg-green-100 fa-solid fa-check text-green-800 mr-3"></i>Conception produit (UI/UX)
+      </li>
+      <li>
+        <i class="p-2 align-middle rounded-full bg-green-100 fa-solid fa-check text-green-800 mr-3"></i>Conseil, Formation, Recrutement
+      </li>
+    </ul>
+  </div>
+      
+  <h2 class="
+  dark:text-zinc-200
+
+  text-center
+  text-sm
+  text-slate-600
+  font-regular
+  leading-normal
+  font-sans
+
+  md:text-md
+  md:text-left
+  
+  
+  lg:leading-relaxed
+
+  xl:leading-relaxed
+  xl:tracking-normal
+  
+  
+  ">En tant qu'entrepreneur en design et développement, designer expérimenté, CTO avec 7 ans d'expérience, et formateur depuis 9 ans, je suis votre partenaire polyvalent 🇨🇭 pour faire avancer vos projets avec succès. 🙌</h2>
+  <div class="flex space-x-2 sm:space-y-0 justify-evenly md:justify-start">
+    <PrimaryButton url="https://calendly.com/anthony-dacruz-pro/30min">
+      <i class="fa-solid fa-video mr-2 animate-pulse"></i>Reserver un créneau
+    </PrimaryButton>
+    <SecondaryButton url="#contact-form">
+      <i class="fa-solid fa-pen mr-2"></i>Un projet ?</a>
+    </SecondaryButton>
+  </div>
+<script is:inline>
+    document.getElementById("hero-title-switcher").addEventListener("click", reloadTitle)
+    function reloadTitle(event) {
+      event.preventDefault()
+      generateCatchPhrase() 
+    }
+    function generateCatchPhrase() {
+      const catchPhrase = [
+            "Un interlocuteur unique pour vos projets",
+            "Développeur mobile natif et Flutter",
+            "Ingénieur iOS & Android",
+            "CTO as a Service",
+            "Ingénieur fullstack",
+            "Product Designer",
+            "Je développe des applications mobiles et web",
+            "Du sur-mesure pour vos projets applicatifs",
+            "Je conçois des app ethiques et utiles",
+            "Je créé des solutions innovantes",
+            "Je développe des plateformes SAAS",
+            "Je conçois des interfaces agréables à utiliser et efficaces",
+            "Je suis formateur UI, UX, Tech et management",
+            "Je transforme votre vision en réalité",
+            "Je forme sur de la tech ambitieuse",
+            "Je crée des solutions technologiques sur mesure",
+        ]
+        const currentCatchPhraseIndex = Math.floor(Math.random() * catchPhrase.length)
+        document.getElementById("hero-title").innerText = `${catchPhrase[currentCatchPhraseIndex]}`  
+    }
+
+    generateCatchPhrase()
+    
+  </script>

@@ -1,0 +1,17 @@
+---
+export const prerender = false
+import BaseLayout from "../layouts/BaseLayout.astro";
+const giphyUri = "https://api.giphy.com/v1/gifs/random?api_key=gUDP1beHuekoonSB2Nim24tYJ6BM0pas&tag=lost";
+const giphyResponse = await fetch(giphyUri);
+const giphyData = await giphyResponse.json();
+const gifUri = giphyData.data.images.fixed_width.webp;
+
+
+---
+<BaseLayout pageTitle="Oops">
+    <div class="text-center flex flex-col text-slate-900 dark:text-zinc-100 items-center space-y-10">
+        <h1 class="text-4xl font-title font-black">Oops - 404 🫖</h1>
+        <p>Il semble que vous soyez perdu :( <br/> Voilà un petit Gif pour la route !</p>
+        <img id="lost-gif" src={gifUri} alt="Lost gif" width="500" class="rounded-xl shadow-lg"/>
+    </div>
+</BaseLayout>

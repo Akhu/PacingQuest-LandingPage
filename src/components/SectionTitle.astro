@@ -1,0 +1,8 @@
+---
+export const prerender = true
+const { title, subtitle } = Astro.props
+---
+<div class="flex flex-col mb-10 text-left md:text-left  items-start md:items-start space-y-2">
+    <h1 class="lg:text-4xl text-4xl tracking-normal font-black text-slate-700  dark:text-zinc-100 font-title" set:html={title}></h1>
+    <h2 class="text-md text-slate-500 dark:text-zinc-300 font-sans">{subtitle}</h2>
+</div>

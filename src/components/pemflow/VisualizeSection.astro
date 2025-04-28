@@ -1,0 +1,49 @@
+---
+const points = [
+  {
+    title: "Prendre du recul sur son état quotidien",
+    description: "Observez les tendances sur plusieurs semaines pour mieux comprendre votre santé."
+  },
+  {
+    title: "Visualisez vos données, constater les améliorations",
+    description: "Des graphiques clairs qui montrent votre progression au fil du temps."
+  },
+  {
+    title: "Repérer des schémas pour adapter sa vie et remonter la pente",
+    description: "Identifiez les facteurs qui influencent votre bien-être et ajustez votre quotidien."
+  }
+];
+---
+
+<section id="visualize" class="section">
+  <div class="flex flex-col md:flex-row items-center gap-12">
+    <div class="md:w-1/2">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Visualisez et comprendre</h2>
+      <p class="text-xl text-gray-600 mb-8">Identifiez ce qui vous aide et ce qui aggrave vos symptômes</p>
+
+      <div class="space-y-6">
+        {points.map((point, index) => (
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100 p-2">
+                {index === 0 && <img src="/images/pacingquest/Balance scale.png" alt="Balance scale" class="w-full h-full object-contain" />}
+                {index === 1 && <img src="/images/pacingquest/In lotus position.png" alt="In lotus position" class="w-full h-full object-contain" />}
+                {index === 2 && <img src="/images/pacingquest/Climbing.png" alt="Climbing" class="w-full h-full object-contain" />}
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-medium">{point.title}</h3>
+              <p class="mt-1 text-gray-600">{point.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="md:w-1/2">
+      <div class="rounded-xl overflow-hidden shadow-lg max-w-md mx-auto">
+        <img src="/images/pacingquest/iphone-charts.png" alt="Visualisations et graphiques" class="w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</section>

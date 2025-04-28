@@ -1,0 +1,15 @@
+---
+export const prerender = true
+const { platform, username } = Astro.props
+import '../../assets/regular.css'
+---
+<a class="p-4 hover:bg-slate-100 rounded-lg border-gray-100 border-2" href={`https://www.${platform}.com/${username}`}>
+  <i class="fa-regular fa-user"></i>  
+  {platform}
+</a>
+
+
+
+<style>
+
+</style>

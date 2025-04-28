@@ -1,0 +1,35 @@
+---
+export const prerender = true
+const { url } = Astro.props
+---
+
+<a href={url} class="
+          max-w-max
+          h-fit
+          flex 
+          items-baseline
+          px-4
+          py-4
+          rounded-full
+          bg-slate-100
+          text-slate-950
+          dark:bg-zinc-800
+          
+          shadow-sm
+          hover:shadow-lg          
+          
+          duration-300
+          ease-in-out
+          transition-all
+
+          font-sans
+          font-black
+
+          hover:bg-slate-700
+          hover:text-white
+          dark:text-zinc-50
+          dark:hover:bg-zinc-50
+          dark:hover:text-zinc-950
+          ">
+            <slot/>
+          </a>

@@ -1,0 +1,80 @@
+---
+---
+<div class="flex flex-row align-middle items-center space-x-3 rounded-full px-4 py-1 bg-slate-100 dark:bg-slate-800 ">
+  <i class="fa-solid fa-sun text-yellow-500 dark:text-gray-400  transition-colors 
+  duration-500 
+  ease-in"></i>
+  <button 
+    id="themeToggle"
+    title="Toggle Theme" 
+    class="
+        w-12 
+        h-6 
+        rounded-full 
+        p-1 
+        bg-slate-600 
+        dark:bg-gray-600 
+        relative 
+        transition-colors 
+        duration-500 
+        ease-in
+        
+        
+        focus:border-transparent
+      ">
+      <div id="toggle"
+        class="
+            rounded-full 
+            focus:border-transparent
+            w-4 
+            h-4 
+            bg-yellow-400 
+            dark:bg-blue-500 
+            relative 
+            ml-0 
+            dark:ml-6 
+            pointer-events-none 
+            transition-all 
+            duration-300 
+            ease-out
+        ">
+        
+      </div>
+      
+      
+      
+</button>
+<i class="fa-solid fa-moon text-gray-500 dark:text-blue-500 transition-colors 
+duration-500 
+ease-in"></i>
+</div>
+
+<script>
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+      return 'light';
+  })();
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+
+  window.localStorage.setItem('theme', theme);
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+
+    const isDark = element.classList.contains("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }
+
+  document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
+</script>

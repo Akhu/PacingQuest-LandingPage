@@ -1,0 +1,74 @@
+---
+export const prerender = true;
+import BaseLayout from './BaseLayout.astro'
+import TagList from '../components/global/TagList.astro'
+import SkillBadge from '../components/landing/SkillBadge.astro'
+import PostInlineTagList from '../components/blog/PostInlineTagList.astro'
+import NavLink from '../components/global/NavLink.astro';
+const { frontmatter, headings } = Astro.props
+//console.log(headings)
+const dateAsDate = new Date(frontmatter.pubDate)
+
+const { minutesRead } = Astro.props.frontmatter
+
+const emphasisBackgroundColor = [
+'bg-lime-200 text-lime-950 dark:bg-lime-900 dark:text-lime-50',
+'bg-pink-200 text-pink-950 dark:bg-pink-900 dark:text-pink-50',
+'bg-cyan-200 text-cyan-950 dark:bg-cyan-900 dark:text-cyan-50',
+'bg-yellow-200 text-yellow-950 dark:bg-zinc-900 dark:text-zinc-300',
+'bg-indigo-200 text-indigo-950 dark:bg-indigo-900 dark:text-indigo-50',
+]
+const randomIndex = Math.floor(Math.random() * emphasisBackgroundColor.length)
+//${emphasisBackgroundColor[randomIndex]}
+---
+<BaseLayout pageTitle={frontmatter.title} metaDescription={frontmatter.description} metaTags={ frontmatter.tags }>
+  
+  <div itemscope itemtype="https://schema.org/Article" class="flex flex-col items-start">
+    <span>
+      <NavLink linkUrl="javascript:history.back()">← Retour</NavLink>
+    </span>
+    <div class="prose prose-zinc prose-h1:leading-relaxed dark:prose-invert mb-10 mx-auto flex flex-col max-w-prose">
+      <h1 itemprop="name" class="font-title">{frontmatter.title}</h1>
+        <div class="space-y-2">
+          <div class="flex flex-row align-baseline justify-between">
+            <div class="text-slate-500 dark:text-zinc-50 text-md" itemprop="author">{frontmatter.author} <span class="text-zinc-400 dark:text-zinc-400">•</span> <span itemprop="datePublished">{dateAsDate.toLocaleDateString('fr')}</span> </div>
+            <div class="font-serif text-md text-slate-500 dark:text-zinc-500"> ~{ minutesRead } min</div>
+          </div>
+
+        <div class={`flex flex-col px-4 py-1 rounded-xl bg-slate-100 dark:bg-zinc-800 dark:text-zinc-300`}>
+          <p><em>{frontmatter.description}</em></p>
+        </div>
+      </div>    
+    </div>
+    
+    
+    <article itemprop="articleBody"  class="
+    break 
+    prose
+    prose-slate
+    
+    prose-img:mx-auto
+    prose-p:font-sans
+    prose-headings:font-sans
+    prose-headings:tracking-wide
+    prose-ul:font-sans
+    
+    prose-img:shadow-xl
+    dark:prose-img:border-zinc-800
+    dark:prose-img:border-2
+    prose-img:rounded-xl
+    
+    dark:prose-invert
+    
+    mx-auto"> 
+    <slot />
+  </article>
+  
+  <div class="max-w-prose mx-auto flex flex-col space-y-10 mt-16">
+    <PostInlineTagList frontmatter={frontmatter} />
+    <NavLink linkUrl="/blog/1"><i class="fa-solid fa-angle-left"></i> <span>Retourner à la liste des articles</span></NavLink>
+    
+  </div>
+  
+</div>
+</BaseLayout>

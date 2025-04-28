@@ -1,0 +1,56 @@
+---
+import Footer from "../components/global/Footer.astro";
+import Header from "../components/global/Header.astro";
+import HeadMeta from "../components/global/HeadMeta.astro";
+import siteMeta from "../data/site-meta.config.js";
+import "../assets/global.css";
+
+const { pageTitle, metaDescription, metaTags, metaImage } = Astro.props;
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <HeadMeta
+      pageTitle={pageTitle}
+      metaDescription={metaDescription}
+      metaTags={metaTags}
+      metaImage={metaImage}
+    />
+  </head>
+  <body class="dark:bg-zinc-900 bg-slate-50">
+    <!-- <img class="absolute left-0 -z-10 bg-cover w-screen opacity-70" src="/images/landing/background-0.png"/> -->
+    <div class="flex flex-col px-8 mb-16">
+      <div class="mt-10 mb-16">
+        <Header />
+      </div>
+      <div class="container mx-auto xl:max-w-screen-lg 2xl:max-w-screen-xl">
+        <slot />
+      </div>
+    </div>
+
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+
+    <style>
+      .grecaptcha-badge {
+        visibility: hidden;
+      }
+    </style>
+  </body>
+</html>

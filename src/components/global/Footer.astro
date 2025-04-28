@@ -1,0 +1,172 @@
+---
+export const prerender = true
+import { date } from 'astro/zod'
+import Social from './Social.astro'
+import TagList from './TagList.astro'
+import ThemeIcon from './ThemeIcon.astro'
+
+const buildDate = new Date()
+
+// Github, Dribbble, Unsplash / Instagram, La Niche
+const works = [
+  {
+    "title": "Github",
+    "url": "https://github.com/Akhu",
+    "description": "Pas mal de projets et d'exemples de code sont sur mon Github",
+  },
+  {
+    "title": "Dribbble",
+    "url": "https://dribbble.com/Akhu",
+    "description": "Je poste des shots 3D ou UI sur Dribbble de temps en temps",
+  },
+  {
+    "title": "Unsplash",
+    "url": "https://unsplash.com/fr/@akhu",
+    "description": "Je poste mes photos libres de droits sur Unsplash",
+  },
+  {
+    "title": "Instagram",
+    "url": "https://www.instagram.com/momantographer/",
+    "description": "Photographe amateur, j'aime y partager mes photos",
+  },
+]
+
+const networks = [
+  {
+    "title": "Twitter",
+    "url": "https://twitter.com/anthokhun",
+    "description": "Principalement pour parler d'actualités sur le Covid Long",
+  },
+  {
+    "title": "Linkedin",
+    "url": "https://www.linkedin.com/in/anthodacruz/",
+    "description": "Là où on évite d’être soi-même 😅",
+  },
+  { 
+    "title": "Meta Covid Long",
+    "url": "https://metacovidlong.substack.com/",
+    "description": "Ma newsletter sur la maladie, et sa place dans la société",
+  },
+  {
+    "title" : "La Niche",
+    "url": "https://laniche.substack.com/",
+    "description": "🆕 Newsletter philo et pro avec des vrais morceaux de conseils pour s'épanouir.",
+  },
+  { 
+    "title": "Facebook",
+    "url": "https://perdu.com/",
+    "description": "Là où on est plus.",
+  }
+]
+
+/* Flutter, SwiftUi, Laravel, Svelte, Kotlin, Jetpack Compose, CoreML, Astro */
+const currentTechnologies = [
+  {
+    "title": "SwiftUI",
+    "imageUrl": "swift_ui",
+  },
+  {
+    "title": "Flutter",
+    "imageUrl": "flutter",
+  },
+  // {
+  //   "title": "Laravel",
+  //   "imageUrl": "laravel",
+  // },
+  // {
+  //   "title": "Svelte",
+  //   "imageUrl": "svelte",
+  // },
+  {
+    "title": "Kotlin",
+    "imageUrl": "kotlin",
+  },
+  {
+    "title": "CoreML",
+    "imageUrl": "core_ml",
+  },
+  {
+    "title": "Astro",
+    "imageUrl": "astro",
+  },
+]
+---
+
+<footer class="w-full
+              bg-gray-700
+              ">
+  <div class="
+  container
+  mx-auto
+  xl:max-w-screen-lg
+  2xl:max-w-screen-xl
+  pt-16
+  pb-16
+  px-8
+  
+  flex
+  flex-col
+  space-y-12
+
+  content-between
+  items-start">
+
+  <ThemeIcon/>  
+  <div class="flex lg:flex-row flex-col space-y-8 lg:space-x-8 space-x-0 lg:space-y-0">
+      <div class="flex flex-col space-y-2">
+        <h1 class="text-2xl font-title text-gray-50 ">Mes <span class="text-teal-300">travaux</span></h1>
+        <ul class="space-y-1">
+          {works.map(work => (
+            <li>
+              <span class="text-gray-300"><a href={work.url} target="_blank" rel="noopener noreferrer" class="underline hover:no-underline flex-shrink-0 text-gray-50">
+                {work.title}
+              </a> - 
+                {work.description}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="flex flex-col space-y-2">
+        <h1 class="text-2xl font-title text-gray-50 ">Mes <span class="text-amber-300">réseaux</span></h1>
+        <ul class="space-y-1">
+          {networks.map(work => (
+            <li>
+              <span class="text-gray-300">
+              <a href={work.url} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-gray-50 underline hover:no-underline">
+                {work.title}
+              </a>
+              
+                {work.description}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+  </div>
+  <div class="flex flex-col items-start space-y-2">
+    <h1 class="text-2xl font-title text-gray-50"> Mes  <span class="text-red-500">technos chouchou</span> du moment</h1>
+    <div class="flex flex-row space-x-4 h-9 ">
+      {currentTechnologies.map(technology => (
+          <img src={"/images/landing/techs/" + technology.imageUrl + ".webp"} alt={technology.title} class="w-8 h-8"/>
+      ))}
+    </div>
+  </div>
+  <div class="flex flex-col lg:items-start items-start text-left lg:text-left space-y-4">
+    <p class="text-gray-100">N’hésitez pas à venir discuter et échanger sur des sujets techniques, philosophiques ou lié au monde du travail, chaque rencontre est enrichissante.
+    Ce site a été développé avec Astro et le moins de Javascript possible, <a href="http://motherfuckingwebsite.com/" class="italic underline hover:no-underline"> le web devrait être plus léger et simple</a>. D'ailleurs <a class="underline hover:no-underline italic" href="/posts/2022-02-09-pourquoi-wordpress-est-un-probleme">pourquoi pas avoir utilisé Wordpress ?</a></p>
+    <p class="text-gray-100">Mes MP sont ouverts sur Twitter, Linkedin ou bien par mail : <a class="underline hover:no-underline" href="mailto:me@anthony-dacruz.com">me@anthony-dacruz.com </a></p>
+    <p class="text-gray-100">© 2023 Anthony Da Cruz | <span class="text-xs">build {buildDate.toLocaleDateString("fr")}</span></p>
+    <a class="text-gray-100 underline hover:no-underline" href="/cgv">Conditions Générales de Vente des prestations</a>
+    <div class="text-slate-50">
+      This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+      </div>
+  </div>
+
+  
+  
+</div>
+</footer>

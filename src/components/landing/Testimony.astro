@@ -1,0 +1,53 @@
+---
+export const prerender = true
+const { name, testimony, profile } = Astro.props
+---
+<div class="flex flex-col 
+            snap-center
+            rounded-3xl
+
+            px-6
+            py-4
+
+            lg:px-8
+            lg:py-6
+            w-full
+            lg:w-2/5
+            shrink-0
+            bg-indigo-500
+            
+            dark:bg-indigo-900
+            dark:border-indigo-500
+
+            border-2
+            border-indigo-400">
+   
+    <p class="overflow-y-scroll font-sans text-md scroll-smooth text-indigo-50 no-scrollbar dark:text-indigo-100 mb-2">{testimony}</p>
+    <div class="flex flex-row space-x-3">
+        <a href={profile} class="flex flex-row items-baseline space-x-2 font-semibold text-indigo-50 dark:text-indigo-300 ">
+            <i class="fa-brands fa-linkedin text-sm"></i>
+            <h1 class="font-sans text-sm ">
+                {name}
+            </h1>
+        </a>
+    </div>
+    <!-- <div class="relative bottom-2 shadow-md shadow-gray-100 rounded-full bg-white border text-center px-3 pb-2 pt-1 min-w-max w-7 h-9"><i class="fa-solid fa-arrow-down"></i></div> -->
+</div>
+
+<script>
+
+</script>
+
+<style is:global>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+</style>
+

@@ -1,0 +1,49 @@
+---
+export const prerender = true
+import Testimony from './Testimony.astro'
+
+
+const testimonies = [
+  {
+    "name" : "Olga Maslova",
+    "testimony" : "J'ai eu la chance de collaborer avec Anthony sur plusieurs projets. Il est un professionnel passionné, toujours à jour avec les dernières technologies. Ses réalisations sont abouties, optimisées, très orientées utilisateurs. Anthony a une capacité de voir un projet en globalité et de prendre en compte tous les détails. J'apprécie particulièrement sa capacité d'évolution qui lui permet d'implémenter les toutes dernières solutions dans ses projets. Sans hésitation je retravaillerai avec Anthony!",
+    "profile" : "https://www.linkedin.com/in/olgamaslova23/"
+  },
+  {
+    "name" : "Henri Larget",
+    "testimony" : "Anthony a été mon chef et mon CTO pendant plus de 5 ans, ça a été un réel plaisir de travailler avec lui, aussi bien sur le plan humain que techniquement, car d'un naturel curieux, toujours à l'écoute des nouvelles technologies, et à la recherche du bon outil pour le bon projet. Anthony sait gérer une équipe et des projets, avec des connaissances techniques aussi bien dans des technos classiques comme PHP que dans des technos modernes comme le Kotlin ou le go. Coté humain, il est très pédagogue, patient, à l'écoute, et d'un naturel confiant envers son équipe ce qui donne la possibilité et l'envie de se surpasser, sans avoir peur d'aborder des problèmes techniques dans un langage inconnu : un bon leader qui sait transformer un sujet banal, en vrai défi. J'ai apprécié travailler avec lui pendant 5 ans, et je continue à apprécier les échanges que nous avons. Je le recommande sans hésiter !",
+    "profile" : "https://www.linkedin.com/in/d3cima/"
+  },
+  {
+    "name" : "Pablo Calejo",
+    "testimony" : "Anthony, avec son entreprise [...], nous a accompagné pour la réalisation d'une application mobile. Avec une technologie (flutter) que nous ne maîtrisions pas et un timing vraiment serre, c'est grâce à sa pédagogie, connaissances des technologies, du design et de la gestion des projets que nous pouvons parler d'une success story. Nous n'hésiterions pas à travailler avec lui dans des projets futurs, et nous pouvons le recommander pour sa capacité d'adaptation, niveau professionnel et son implication.",
+    "profile" : "https://www.linkedin.com/in/pablo-callejo-6485863/"
+  },
+  {
+    "name" : "Sonia Brunel",
+    "testimony" : "J'ai eu la chance d'être formé par Anthony à la gestion de projet. Excellent pédagogue, enthousiaste et disponible, il a su me transmettre les différents concepts et méthodes de cette compétence, en s'assurant de ma compréhension et en adaptant son discours à mes réactions. Il a su captiver mon attention à travers différents outils / supports d'apprentissage alternant exercices et théories. Il avait parfaitement préparé le déroulement de son atelier. Merci Anthony !.",
+    "profile" : "https://www.linkedin.com/in/sonia-brunel/"
+  },
+  {
+    "name" : "Cedric Milius",
+    "testimony" : "Anthony a animé un atelier sur le thème de la gestion de projet, il a su appuyer ses explications par des exemples concrets. J’ai eu l’occasion de constater sa maîtrise et ses dons pour expliquer simplement des concepts et des approches complexes. C’est un excellent pédagogue !",
+    "profile" : "https://www.linkedin.com/in/cedricmilius/"
+  },
+  {
+    "name" : "Killian Sowa",
+    "testimony" : "J'ai travaillé pendant 1 an chez Async, sous la responsabilité d'Anthony, et c'était un pur plaisir et certainement le meilleur choix d'entreprise que j'ai pu faire. Anthony est curieux, très cadré, fait énormément de veille et est toujours à jour sur les dernières technologies. Il a aussi une sensibilité graphique forte, et c'est plutôt rare de combiner les deux, je vous le recommande à fond !",
+    "profile" : "https://www.linkedin.com/in/killian-sowa/"
+  },
+  {
+    "name" : "Camille Comarmond",
+    "testimony" : "Anthony est formateur au sein de MyDigitalSchool depuis l'année scolaire 2021/2022 : il est très apprécié des équipes pédagogiques et de ses élèves pour son professionnalisme, son calme et sa pédagogie. Anthony est un formateur très concerné par l'évolution continue du monde qui l'entoure et par la réussite de ses élèves ce qui rend la collaboration très appréciable. Anthony nourrit ses cours de ses riches expériences professionnelles, ce qui lui permet une certaine exigence en classe, notamment dans la transmission des softskills et dans le développement d'une curiosité et persévérance chez ses élèves. Formateur référent côté développement web, il se rend toujours disponible pour accompagner les équipes et nouveaux formateurs dans la relecture des programmes, création des cours, aide sur les logiciels et technos... En bref, je recommande Anthony pour ses qualités humaines, son professionnalisme et sa disponibilité.",
+    "profile" : "https://www.linkedin.com/in/camille-commarmond-a3b0a2a5/"
+  }
+
+]
+---
+
+<div class="flex flex-row space-x-6 overflow-x-scroll scroll-smooth w-auto lg:h-64 h-56 no-scrollbar snap-x snap-mandatory pb-1">
+    {testimonies.map((testimony) => (
+      <Testimony name={testimony.name} testimony={testimony.testimony} profile={testimony.profile} />))}
+  </div>

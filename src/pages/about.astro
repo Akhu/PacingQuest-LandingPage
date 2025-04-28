@@ -1,0 +1,143 @@
+---
+export const prerender = true
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Book from "../components/global/Book.astro"
+const pageTitle = "A propos de moi";
+
+const identity = {
+  firstName: "Anthony",
+  country: "France",
+  occupation: "Developer, Writer and Designer",
+  hobbies: ["photography", "3D printing", "getting better from Long COVID"],
+};
+
+const skills = ["⭐️ Développeur Mobile natif (Principalement Apple, mais aussi Flutter et Android)", "⭐️ Design Produit", "Développeur Web FullStack (SAAS, JamStack)", "Architecture Logicielle", "Stack Data"];
+const softSkills = ["Recrutement de profils spécifiques (Data, IA, Mobile, Développement, etc.)","Stratégie et tactique pour solutions numériques", "Management de l'innovation", "Méthodes UX", "Leadership", "Mentoring", "Conseils", "Formations"]
+//Donald Norman, Edward Catmull, Carine Lallement
+const books = [
+  {
+    "title": "The Design of Everyday Things",
+    "author": "Donald Norman",
+    "description" : "Un livre qui a changé complètement ma vision du design. Concevoir des produits et des objets qui sont intuitifs, faciles à utiliser et qui répondent aux besoins des utilisateurs, en mettant l'accent sur l'importance du design centré sur l'utilisateur et de la prise en compte de l'ergonomie.",
+    "link": "https://www.amazon.fr/Design-Everyday-Things-revised-expanded/dp/0465050654"
+  },
+  {
+    "title": "Creativity, Inc.",
+    "author": "Ed Catmull",
+    "description" : "Pour être un bon manager, il faut savoir s'entourer de personnes compétentes et les laisser s'exprimer. C'est ce que l'on explore dans ce livre remplis d'anecdotes et de conseils pour manager une équipe de créatifs.",
+    "link": "https://www.amazon.fr/Creativity-Inc-Overcoming-Unseen-Inspiration/dp/0593070109"
+  },
+  {
+    "title" : "Méthodes de design UX",
+    "author": "Carine Lallemand",
+    "description" : "Un bouquin \"boite à outils\" à toujours avoir pas loin de soi, très utile et pragmatique, il permet de comprendre les méthodes de design UX et de les appliquer en toute situation.",
+    "link": "https://www.amazon.fr/M%C3%A9thodes-design-UX-30-m%C3%A9thodes/dp/2100803360"
+  },
+  {
+    "title" : "Laws of UX",
+    "author": "Jon Yablonski",
+    "description" : "Un site web qui répertorie les lois de l'UX, c'est très pratique pour découvrir et se rappeler des principes.",
+    "link": "https://lawsofux.com/"
+  },
+  {
+    "title" : "Don't make me think",
+    "author": "Steve Krug",
+    "description" : "Un livre qui permet de comprendre les bases de l'UX pour le web, et de se mettre dans la peau de l'utilisateur. Illustré et très drôle, un must have.",
+    "link": "https://www.amazon.fr/Dont-Make-Me-Think-Usability/dp/0321965515"
+  },
+  {
+    "title" : "The War of Art",
+    "author": "Steven Pressfield",
+    "description" : "Comment surmonter la procrastination, les blocages créatifs et les résistances intérieures pour atteindre notre plein potentiel créatif.",
+    "link": "https://www.amazon.fr/War-Art-Through-Creative-Battles/dp/1936891026"
+  },
+  {
+    "title" : "Deep Work",
+    "author": "Cal Newport",
+    "description" : "Se concentrer sans distraction sur des tâches cognitivement exigeantes afin de produire un travail de haute qualité et d'améliorer sa productivité",
+    "link": "https://www.amazon.fr/Deep-Work-Focused-Success-Distracted/dp/0349413681"
+  },
+  {
+    "title" : "Clean Code",
+    "author": "Robert C. Martin",
+    "description" : "Pourquoi mettre l'accent sur l'importance d'écrire un code clair, lisible et bien organisé. Un code qui facilite la maintenance, la collaboration et la création de logiciels de qualité.",
+    "link": "https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882"
+  },
+  {
+    "title" : "Peak",
+    "author": "Anders Ericsson",
+    "description" : "Ce livre, que j'adore, examine les principes et les stratégies pour atteindre l'excellence et améliorer les performances dans n'importe quel domaine, en mettant l'accent sur la pratique délibérée et la gestion efficace de l'apprentissage.",
+    "link": "https://www.amazon.fr/Peak-Secrets-New-Science-Expertise/dp/0544947223"
+  }
+]
+
+---
+<BaseLayout pageTitle={pageTitle}>
+  <article class="prose dark:prose-invert">
+    <h1>Qui suis-je ?</h1>
+    <h2>🛣️ Mon parcours</h2>
+    <p>Après des études dans l'informatique (IUT informatique) puis dans le management d'innovation et des technologies de l'information (MT2I à l'IAE), puis je me suis pris de passion pour le développement mobile et la conception d'interface, j'ai énormément travaillé ces sujets au travers de mes experiences.</p>
+    <p>J'ai ensuite travaillé pendant 7 ans en start-up, je suis passé de stagiaire à CTO et Designer produit. J'ai ensuite monté ma société avec un associé, aujourd'hui je suis Freelance, notamment à cause d'un <a href="https://open.substack.com/pub/metacovidlong/p/vous-avez-probablement-des-sequelles?r=1uni3m&utm_campaign=post&utm_medium=web">Covid Long.</a></p>
+    <p>Parallèlement j'ai toujours donné des formations, à l'IUT, puis dans des organismes de formations tel que le Campus Numérique ou My Digital School</p>
+    
+    <h2>✨ Quelques personnes que j'admire</h2>
+    <p>Puisqu'il est parfois difficile de se décrire, parler de personnes qui m'inspirent et que j'admire peut-être plus parlant.</p>
+    <p>👉 <b>Donald Norman et Jakob Nieslen</b> qui sont les contemporains compétents sur les théories du Design, dans le sens conception d'interface et de produit. Leurs travaux ont façonnés le web moderne mais aussi les méthodes pour construire des produits ergonomiques, agréables et efficaces.</p>
+    <blockquote>
+      "Engineers and businesspeople are trained to solve problems. Designers are trained to discover the real problems." - Donald Norman
+    </blockquote>
+    <p>👉 <b>Edward Catmull</b>, créateur de Pixar, pour ses leçons de management, comment pousser les autres à donner le meilleur de leur passion, toujours rester ouvert et libre aux discussions tout en sachant trancher pour avancer intelligemment.</p>
+    <blockquote>
+      "If you give a good idea to a mediocre team, they will screw it up. If you give a mediocre idea to a brilliant team, they will either fix it or throw it away and come up with something better." - Ed Catmull
+    </blockquote>
+    <p>👉 <b>Alexandre Astier</b>, notamment pour sa force d'accomplissement, sa manière d'aborder un nouveau projet, aller au bout des choses même lorsque sa capacité à créer est remise en question par les autres.</p>
+    <blockquote>
+      "Il faut toujours se donner le droit d'échouer, mais ne jamais se donner le droit d'abandonner." - Alexandre Astier
+    </blockquote>
+
+
+    <h3>📚 Quelques bouquins que je recommande souvent</h3>
+    <p>Puisque l'on parle de personnes talentueuses...</p>
+    <div class="p-4 rounded-lg shadow-lg bg-slate-500">
+      <div class="flex flex-col max-h-80 overflow-auto">
+        <span class="text-slate-50 mb-1 pb-0">{new Date().toLocaleDateString('fr')} • {books.length} Livres</span>
+        {books.map((e) => <Book description={e.description} title={e.title} author={e.author} link={e.link} />)}
+      </div>
+    </div>
+    
+    <h2>🙌 Ma vision de la collaboration professionnelle</h2>
+    <p>Selon moi une réalisation de haute qualité passe avant tout par la motivation, la bonne entente et la confiance dans une équipe, mais doit se baser sur des méthodes et outils éprouvés et adapté.</p>
+    
+    <blockquote>Savoir mélanger intelligement ces deux aspects est ce qui m'anime.</blockquote>
+    
+    <p>Un bon professionnel vous accompagne intelligemment dans le champs des possibles avec pédagogie, il fixe des limites sur ce qu'il est capable de faire ou non. Pour prendre une décision, il faut des informations pertinentes, c'est pour cela que ma veille et la prospective qui en découle sont toujours adaptées.</p>
+    <p>Vous saurez tout, cela sera à vous de choisir la direction, je m'occupe du reste.</p>
+    
+    <blockquote>
+      "Une petite impatience peut ruiner un grand projet."
+    </blockquote>
+    
+    <p>La communication tout au long du projet est essentielle, tout comme la confiance.</p>
+    <p>Aussi je n'hésite pas à mettre fin à une collaboration si il n'est pas possible pour moi d'appliquer ces méthodes.</p>
+    
+    <h2>✅ Mes compétences</h4>
+    <p>...développées et muries au fil des années et des galères </p>
+    <h3>Hard Skills</h3>
+    <p>C'est parti pour les mots bien techniques ⬇️</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+    <p>Je vais pas vous mentir, ce qui m'anime c'est créer des app mobiles de A à Z, de l'idée à la page de l'AppStore en passant par les maquettes et l'UX. Mais je suis aussi très à l'aise avec les solutions web, et je suis un grand fan de Flutter.</p>
+    
+    <h3>Soft Skills</h3>
+    <p>Tout aussi essentiels</p>
+    <ul>
+      {softSkills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    <h2>📷 Mes passions, hormis la tech</h2>
+    <p> Pour faire simple : <b>la photographie</b> et <b>l'écriture</b>, j'aime aussi beaucoup la randonné, hâte de pouvoir en refaire !</p>
+    
+  </article>
+
+</BaseLayout>

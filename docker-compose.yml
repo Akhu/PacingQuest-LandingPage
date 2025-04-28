@@ -1,0 +1,18 @@
+# Docker compose file for building and running a local dockerfile (Node with Astro)
+# Using traefik as a reverse proxy on port 3000 to route to the app
+
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - SITE=https://anthony.pickle-forge.app
+    image: astro-app
+    environment:
+     - SITE=https://anthony.pickle-forge.app
+    restart: always
+    ports:
+      - 3002:3000

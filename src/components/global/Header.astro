@@ -1,0 +1,21 @@
+---
+export const prerender = true
+import Navigation from './Navigation.astro'
+import Hamburger from './Hamburger.astro'
+import ThemeIcon from './ThemeIcon.astro';
+import Anthony from './Anthony.astro';
+---
+<header>
+  <nav class="flex flex-row content-between items-center align-middle ">
+    <div class="lg:hidden">
+      <Hamburger/>
+    </div>
+
+    <div class="">
+      <Anthony/>
+    </div>
+    
+    <div class="flex-grow"></div>
+    <Navigation/>
+  </nav>
+</header>

@@ -1,0 +1,65 @@
+---
+export const prerender = false
+import BaseLayout from '../layouts/BaseLayout.astro'
+const pageTitle = "👋 Anthony Da Cruz"
+import HeroIllustration from '../components/landing/HeroIllustration.astro'
+import Skill from '../components/landing/Skill.astro'
+import SectionTitle from '../components/SectionTitle.astro'
+import SectionWrapper from '../components/SectionWrapper.astro'
+import ContactForm from '../components/ContactForm.astro'
+import TestimonyStack from '../components/landing/TestimonyStack.astro'
+
+import HeroContent from '../components/landing/HeroContent.astro'
+
+const skills = [
+  {
+    "title" : "Construire un produit <b class='text-yellow-400 font-bold'>intelligemment</b>",
+    "color" : "yellow",
+    "description" : "<li>Je met à votre disposition un mélange unique entre technique et stratégie d’innovation.</li><li>Je vous fais profiter de mon réseau pour rester serein avec des professionnels au top.</li><li>Je vous aide à trouver des solutions innovantes et à les mettre en place.</li><li>Peu importe le stade de votre projet, je vous aide à débloquer la situation et à optimiser le processus.</li>",
+    "tags" : "Méthodes UX, Design Thinking, Audit Produit, Prospective, Formation, Conseil, Accompagnement, Mise en relation",
+    "image" : "n"
+  },
+  {
+    "title" : "Des <b class='text-pink-400 font-bold'>maquettes</b> qui tuent <i class='text-xs'>pas littéralement</i> ",
+    "color" : "pink",
+    "description" : "<li>Des maquettes et des interfaces qui font vendre, agréable à utiliser et uniques.</li><li>Je vous accompagne dans la conception de votre produit et vous aide à prendre les bonnes décisions.</li><li>Une conception humaine, pragmatique et esthétique.</li>",
+    "tags" : "Maquettes UI, Design UX, Conseils, Formation",
+    "image" : "f"
+    },
+    {
+    "title" : "Du code <b class=\"text-cyan-400 font-bold\">en avance</b> sur son temps",
+    "color" : "cyan",
+    "description" : "<li>Applications mobile natives et web respectueuses de l’environnement et performantes.</li><li>J’exploite au maximum les outils pour optimiser votre temps et la qualité.</li><li>J’utilise les technologies pertinentes pour le projet. Sortir de sa zone de confort pour coller aux besoins, c'est se différencier sur le marché 😉.</li>",
+    "tags" : "Application iOS, Application Android, Natif, SAAS, Web, Audit, Flutter, Formation, Machine Learning",
+    "image" : "r"
+    },
+]
+
+---
+<BaseLayout pageTitle={ pageTitle }>
+
+  <div class="flex flex-col">
+    <div class="flex flex-col md:flex-row items-center md:items-start mb-12 lg:space-x-14">
+      <HeroIllustration/>
+      <HeroContent/>
+    </div>
+  </div>
+    
+    <SectionWrapper>
+      <SectionTitle title="Je <span class='text-cyan-400'>résous</span> des problèmes" subtitle="Oui, il y en a qui aime ça 🤷‍♂️"/>
+      {skills.map((e) => <Skill color={e.color} title={e.title} description={e.description} tags={e.tags} image={e.image}/>)}
+    </SectionWrapper>
+    <SectionWrapper>
+      <SectionTitle title="<span class='text-indigo-500'>Travailler</span> avec moi 😉" subtitle="Quelques retours des personnes avec qui j'ai eu la chance de collaborer 🙌"/>
+      <div class="flex flex-row items-center">
+        <TestimonyStack/><i class="animate-ping text-slate-300 fa-solid fa-circle fa-2xs ml-4"></i>
+      </div>
+      </SectionWrapper>
+    <SectionWrapper>
+      <SectionTitle title="<span class='text-yellow-500'> L'étincelle </span> pour propulser un projet" subtitle="Rien de tel qu'un professionnel pour vous aiguiller ⚡️"/>
+      <ContactForm/>
+    </SectionWrapper>
+
+   
+  </div>
+</BaseLayout>

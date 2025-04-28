@@ -1,0 +1,36 @@
+---
+import FeatureItem from './FeatureItem.astro';
+
+const features = [
+  {
+    title: "Notez simplement votre qualité de sommeil",
+    iconSrc: "/images/pacingquest/Person in bed.png",
+    description: "Suivez facilement votre sommeil pour identifier les tendances et améliorations."
+  },
+  {
+    title: "Exprimez les activités sur une échelle simple et officielle",
+    iconSrc: "/images/pacingquest/Kite.png",
+    description: "Utilisez une échelle validée pour mesurer votre niveau d'activité quotidien."
+  },
+  {
+    title: "Prendre note des crashes et de vos symptômes",
+    iconSrc: "/images/pacingquest/Stop sign.png",
+    description: "Documentez vos symptômes et les moments difficiles pour mieux les comprendre."
+  }
+];
+---
+
+<section id="features" class="section bg-gray-50">
+  <h2 class="section-title">Prendre en main sa guérison</h2>
+  <p class="section-subtitle">Des outils simples mais puissants pour suivre votre parcours de santé</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+    {features.map(feature => (
+      <FeatureItem
+        title={feature.title}
+        iconSrc={feature.iconSrc}
+        description={feature.description}
+      />
+    ))}
+  </div>
+</section>
