@@ -1,4 +1,5 @@
 ---
+import PrimaryButton from '../global/PrimaryButton.astro';
 const symptoms = [
   "Covid Long",
   "Syndrome post-viraux",
@@ -46,9 +47,9 @@ const symptoms = [
     ))}
   </div>
 
-  <div class="mt-16 text-center">
-    <a href="https://testflight.apple.com/join/6JDUpxvr" class="btn-primary text-lg px-8 py-3">
+  <div class="mt-16 text-center flex flex-col items-center">
+    <PrimaryButton url="https://testflight.apple.com/join/6JDUpxvr">
       Accéder à la beta
-    </a>
+    </PrimaryButton>
   </div>
 </section>

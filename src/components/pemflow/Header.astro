@@ -1,4 +1,5 @@
 ---
+import PrimaryButton from '../global/PrimaryButton.astro';
 ---
 
 <header class="bg-linear-to-b from-indigo-50 to-amber-50 py-8 md:py-16">
@@ -30,10 +31,10 @@
           <img src="/images/pacingquest/webp/Hero.webp" alt="Pacing Quest App" class="w-full h-auto overflow-clip" />
         </div>
       </div>
-      <div class="space-y-3">
-        <a href="https://testflight.apple.com/join/6JDUpxvr" class="btn-primary text-lg font-bold px-8 py-3">
+      <div class="flex flex-col space-y-3 items-center">
+        <PrimaryButton url="https://testflight.apple.com/join/6JDUpxvr">
           Accéder à la beta
-        </a>
+        </PrimaryButton>
         <div class="text-slate-500 font-light ">
           Accédez à cette page depuis votre iPhone <br/>
           - Nombres de place limitées -
