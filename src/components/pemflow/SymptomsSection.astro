@@ -3,30 +3,49 @@ const symptoms = [
   "Covid Long",
   "Syndrome post-viraux",
   "EM/SFC",
+  "Encéphalomyélite myalgique",
   "Fatigue chronique",
   "Fibromyalgie",
   "Malaise post-effort",
+  "Intolérance à l'effort",
   "Épuisement",
+  "Épuisement chronique",
   "Brouillard mental",
+  "Troubles cognitifs",
   "Douleurs chroniques",
+  "Douleurs musculaires",
+  "Douleurs articulaires",
+  "Sommeil non réparateur",
+  "Troubles du sommeil",
   "Intolérance orthostatique",
+  "Hypotension",
   "POTS",
-  "Dysautonomie"
+  "Tachycardie posturale",
+  "Dysautonomie",
+  "Palpitations",
+  "Hypersensibilité sensorielle",
+  "Anxiété",
+  "Dépression réactionnelle",
+  "Hypoxie cérébrale",
+  "Gestion de l'énergie",
+  "Auto-suivi des symptômes",
+  "Suivi quotidien"
 ];
+
 ---
 
-<section class="section bg-white">
+<section class="section bg-indigo-50">
   <h2 class="section-title">Si ces mots vous parlent...</h2>
-  <p class="section-subtitle">PEM Flow est conçu pour vous aider à gérer ces conditions</p>
-  
+  <p class="section-subtitle">Pacing Quest est conçue pour vous aider à gérer ces conditions</p>
+
   <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mt-8">
     {symptoms.map(symptom => (
-      <div class="bg-gray-100 hover:bg-indigo-100 text-gray-800 hover:text-indigo-800 px-4 py-2 rounded-full cursor-pointer transition-colors">
+      <div class="bg-indigo-100 hover:bg-white text-gray-800 hover:text-indigo-800 px-4 py-2 rounded-full cursor-pointer transition-colors">
         {symptom}
       </div>
     ))}
   </div>
-  
+
   <div class="mt-16 text-center">
     <a href="#download" class="btn-primary text-lg px-8 py-3">
       Accéder à la beta

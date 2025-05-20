@@ -3,26 +3,27 @@ import FeatureItem from './FeatureItem.astro';
 
 const features = [
   {
-    title: "Notez simplement votre qualité de sommeil",
-    iconSrc: "/images/pacingquest/Person in bed.png",
+    title: "Notez simplement la qualité de sommeil",
+    iconSrc: "/images/pacingquest/webp/person_in_bed_3d_default.webp",
     description: "Suivez facilement votre sommeil pour identifier les tendances et améliorations."
   },
   {
     title: "Exprimez les activités sur une échelle simple et officielle",
-    iconSrc: "/images/pacingquest/Kite.png",
-    description: "Utilisez une échelle validée pour mesurer votre niveau d'activité quotidien."
+    iconSrc: "/images/pacingquest/webp/kite_3d.webp",
+    description: "Utilisez une échelle imaginée pour le Pacing par Stanford (USA) pour mesurer votre niveau d'activité quotidien.",
+    link: "/Outil_PlanEvitementCrash_Stanford_FR.pdf"
   },
   {
     title: "Prendre note des crashes et de vos symptômes",
-    iconSrc: "/images/pacingquest/Stop sign.png",
+    iconSrc: "/images/pacingquest/webp/card_file_box_3d.webp",
     description: "Documentez vos symptômes et les moments difficiles pour mieux les comprendre."
   }
 ];
 ---
 
-<section id="features" class="section bg-gray-50">
+<section id="features" class="section bg-amber-50">
   <h2 class="section-title">Prendre en main sa guérison</h2>
-  <p class="section-subtitle">Des outils simples mais puissants pour suivre votre parcours de santé</p>
+  <p class="section-subtitle">Des outils simples mais puissants pour suivre vos symptômes</p>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
     {features.map(feature => (

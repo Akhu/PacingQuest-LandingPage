@@ -11,11 +11,24 @@ const { pageTitle, metaDescription } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={metaDescription || "Pacing Quest - L'application 100% gratuite par les patients, pour les patients pour reprendre le dessus sur la maladie et adapter sa vie."} />
-    <title>{pageTitle || "Pacing Quest - La quête vers la guérison"}</title>
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pacing Quest - La quête vers la guérison" />
+    <meta name="twitter:description" content="L'app gratuite pour suivre ses symptômes et adapter son rythme." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <meta property="og:title" content="Pacing Quest - La quête vers la guérison" />
+    <meta property="og:description" content="L'app gratuite par et pour les patients atteints de fatigue chronique ou Covid Long." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pacing.quest" />
+
+
+    <title> {pageTitle || "Pacing Quest - La quête vers la guérison"} </title>
 
     <!-- Polices -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body class="bg-white font-sans nunito-font">

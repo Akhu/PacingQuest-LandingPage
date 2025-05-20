@@ -15,8 +15,8 @@ const points = [
 ];
 ---
 
-<section id="visualize" class="section">
-  <div class="flex flex-col md:flex-row items-center gap-12">
+<section id="visualize" class="section bg-gradient-to-b from-amber-50 to-indigo-50">
+  <div class="flex flex-col md:flex-row items-center gap-12 ">
     <div class="md:w-1/2">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">Visualisez et comprendre</h2>
       <p class="text-xl text-gray-600 mb-8">Identifiez ce qui vous aide et ce qui aggrave vos symptômes</p>
@@ -25,10 +25,10 @@ const points = [
         {points.map((point, index) => (
           <div class="flex">
             <div class="flex-shrink-0 mr-4">
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100 p-2">
-                {index === 0 && <img src="/images/pacingquest/Balance scale.png" alt="Balance scale" class="w-full h-full object-contain" />}
-                {index === 1 && <img src="/images/pacingquest/In lotus position.png" alt="In lotus position" class="w-full h-full object-contain" />}
-                {index === 2 && <img src="/images/pacingquest/Climbing.png" alt="Climbing" class="w-full h-full object-contain" />}
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 p-2">
+                {index === 0 && <img src="/images/pacingquest/webp/balance_scale_3d.webp" alt="Balance scale" class="w-full h-full object-contain" />}
+                {index === 1 && <img src="/images/pacingquest/webp/woman_in_lotus_position_3d_default.webp" alt="In lotus position" class="w-full h-full object-contain" />}
+                {index === 2 && <img src="/images/pacingquest/webp/person_climbing_3d_default.webp" alt="Climbing" class="w-full h-full object-contain" />}
               </div>
             </div>
             <div>
@@ -41,8 +41,13 @@ const points = [
     </div>
 
     <div class="md:w-1/2">
-      <div class="rounded-xl overflow-hidden shadow-lg max-w-md mx-auto">
-        <img src="/images/pacingquest/iphone-charts.png" alt="Visualisations et graphiques" class="w-full h-auto" />
+      <div class="flex flex-col md:flex-row items-center space-x-2">
+        <div class="rounded-xl overflow-hidden shadow-lg w-48 mx-auto">
+          <img src="/images/pacingquest/webp/Trends.webp" alt="Visualisations et graphiques" class="w-full h-auto" />
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg w-48 mx-auto">
+          <img src="/images/pacingquest/webp/Charts.webp" alt="Visualisations et graphiques" class="w-full h-auto" />
+        </div>
       </div>
     </div>
   </div>
