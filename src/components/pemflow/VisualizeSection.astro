@@ -15,7 +15,7 @@ const points = [
 ];
 ---
 
-<section id="visualize" class="section bg-gradient-to-b from-amber-50 to-indigo-50">
+<section id="visualize" class="section bg-linear-to-b from-amber-50 to-indigo-50">
   <div class="flex flex-col md:flex-row items-center gap-12 ">
     <div class="md:w-1/2">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">Visualisez et comprendre</h2>
@@ -24,7 +24,7 @@ const points = [
       <div class="space-y-6">
         {points.map((point, index) => (
           <div class="flex">
-            <div class="flex-shrink-0 mr-4">
+            <div class="shrink-0 mr-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 p-2">
                 {index === 0 && <img src="/images/pacingquest/webp/balance_scale_3d.webp" alt="Balance scale" class="w-full h-full object-contain" />}
                 {index === 1 && <img src="/images/pacingquest/webp/woman_in_lotus_position_3d_default.webp" alt="In lotus position" class="w-full h-full object-contain" />}

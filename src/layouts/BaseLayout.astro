@@ -36,7 +36,7 @@ const { pageTitle, metaDescription, metaTags, metaImage } = Astro.props;
       <div class="mt-10 mb-16">
         <Header />
       </div>
-      <div class="container mx-auto xl:max-w-screen-lg 2xl:max-w-screen-xl">
+      <div class="container mx-auto xl:max-w-(--breakpoint-lg) 2xl:max-w-(--breakpoint-xl)">
         <slot />
       </div>
     </div>
