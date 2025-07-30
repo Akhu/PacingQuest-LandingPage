@@ -32,7 +32,7 @@ const symptoms = [
   "Auto-suivi des symptômes",
   "Suivi quotidien"
 ];
-
+import AppStoreBadge from '../../assets/app_store_badge.svg';
 ---
 
 <section class="section bg-indigo-50">
@@ -47,9 +47,12 @@ const symptoms = [
     ))}
   </div>
 
-  <div class="mt-16 text-center flex flex-col items-center">
-    <PrimaryButton url="https://testflight.apple.com/join/6JDUpxvr">
-      Accéder à la beta
+  <div class="mt-16 text-center flex flex-col items-center space-y-3">
+    <PrimaryButton url="https://apps.apple.com/fr/app/pacing-quest/id6499503099">
+      Télécharger l'application
     </PrimaryButton>
+    <a href="https://apps.apple.com/fr/app/pacing-quest/id6499503099">
+      <AppStoreBadge/>
+    </a>
   </div>
 </section>

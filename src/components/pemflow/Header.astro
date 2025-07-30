@@ -1,5 +1,7 @@
 ---
 import PrimaryButton from '../global/PrimaryButton.astro';
+import AppStoreBadge from '../../assets/app_store_badge.svg';
+import SecondaryButton from '../global/SecondaryButton.astro';
 ---
 
 <header class="bg-linear-to-b from-indigo-50 to-amber-50 py-8 md:py-16">
@@ -31,14 +33,18 @@ import PrimaryButton from '../global/PrimaryButton.astro';
           <img src="/images/pacingquest/webp/Hero.webp" alt="Pacing Quest App" class="w-full h-auto overflow-clip" />
         </div>
       </div>
-      <div class="flex flex-col space-y-3 items-center">
-        <PrimaryButton url="https://testflight.apple.com/join/6JDUpxvr">
-          Accéder à la beta
-        </PrimaryButton>
-        <div class="text-slate-500 font-light ">
-          Accédez à cette page depuis votre iPhone <br/>
-          - Nombres de place limitées -
+      <div class="flex flex-col space-y-6 items-center">
+        <div class="flex flex-row items-center space-x-2">
+          <PrimaryButton url="https://apps.apple.com/fr/app/pacing-quest/id6499503099">
+            Télécharger l'application
+          </PrimaryButton>
+          <SecondaryButton url="https://ko-fi.com/anthonyswift">
+              Me soutenir avec un café
+          </SecondaryButton>
         </div>
+        <a href="https://apps.apple.com/fr/app/pacing-quest/id6499503099">
+          <AppStoreBadge/>
+        </a>
       </div>
     </div>
   </div>
