@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: 'https://pemflow.app',
+  site: 'https://pacing.quest',
   integrations: [sitemap()],
 
   vite: {

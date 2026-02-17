@@ -9,13 +9,37 @@ export interface Props {
 const { title, description, iconSrc, link } = Astro.props;
 ---
 
-<div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-  <div class="w-20 h-20 flex items-center justify-center bg-amber-100 rounded-full mb-4 p-4">
-    <img src={iconSrc} alt={title} class="w-full h-full object-contain" />
+<article class="group relative">
+  <!-- Glow effect on hover -->
+  <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-amber-500 rounded-3xl opacity-0 group-hover:opacity-20 blur transition duration-500"></div>
+
+  <!-- Card content -->
+  <div class="relative flex flex-col items-center text-center p-8 md:p-10 glass-card rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full border border-white/20">
+    <!-- Icon with animated background -->
+    <div class="relative w-24 h-24 flex items-center justify-center mb-6">
+      <div class="absolute inset-0 bg-gradient-to-br from-amber-200 to-amber-100 rounded-2xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl transform -rotate-6 group-hover:-rotate-12 transition-transform duration-500"></div>
+      <div class="relative w-16 h-16 p-3">
+        <img src={iconSrc} alt="" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Content -->
+    <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">{title}</h3>
+
+    <div class="space-y-4 flex flex-col flex-grow">
+      {description && <p class="text-gray-600 leading-relaxed">{description}</p>}
+      {link && (
+        <a
+          href={link}
+          class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium transition-colors mt-auto"
+        >
+          Plus d'infos
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      )}
+    </div>
   </div>
-  <h3 class="text-xl font-semibold mb-2">{title}</h3>
-  <div class="space-y-2 flex flex-col">
-  {description && <p class="text-gray-600">{description}</p>}
-    {link && <a class="btn-secondary" href={link}>Plus d'infos</a>}
-  </div>
-</div>
+</article>

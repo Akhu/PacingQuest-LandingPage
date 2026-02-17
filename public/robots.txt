@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anthony-dacruz.com/sitemap-index.xml
+Sitemap: https://pacing.quest/sitemap-index.xml

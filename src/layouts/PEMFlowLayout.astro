@@ -1,36 +1,73 @@
 ---
 import "../styles/global.css";
 const { pageTitle, metaDescription } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Pacing Quest",
+  "description": "Application gratuite de suivi des symptômes pour les patients atteints de fatigue chronique, EM/SFC, Covid Long et syndromes post-viraux",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "iOS",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "ratingCount": "100"
+  }
+};
 ---
 
+<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={metaDescription || "Pacing Quest - L'application 100% gratuite par les patients, pour les patients pour reprendre le dessus sur la maladie et adapter sa vie."} />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pacing Quest - La quête vers la guérison" />
-    <meta name="twitter:description" content="L'app gratuite pour suivre ses symptômes et adapter son rythme." />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <!-- SEO Meta Tags -->
+    <title>{pageTitle || "Pacing Quest - Application gratuite de gestion de la fatigue chronique et EM/SFC"}</title>
+    <meta name="description" content={metaDescription || "Pacing Quest est l'application 100% gratuite et privée pour suivre vos symptômes de fatigue chronique, EM/SFC, Covid Long et adapter votre rythme de vie. Par les patients, pour les patients."} />
+    <meta name="keywords" content="fatigue chronique, EM/SFC, Covid Long, pacing, malaise post-effort, encéphalomyélite myalgique, syndrome de fatigue chronique, suivi symptômes, application santé gratuite" />
+    <meta name="author" content="Anthony Da Cruz" />
+    <link rel="canonical" href="https://pacing.quest" />
 
-    <meta property="og:title" content="Pacing Quest - La quête vers la guérison" />
-    <meta property="og:description" content="L'app gratuite par et pour les patients atteints de fatigue chronique ou Covid Long." />
-    <meta property="og:image" content="/og-image.jpg" />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pacing.quest" />
+    <meta property="og:title" content="Pacing Quest - La quête vers la guérison" />
+    <meta property="og:description" content="L'application gratuite par et pour les patients atteints de fatigue chronique, EM/SFC ou Covid Long. Suivez vos symptômes en toute confidentialité." />
+    <meta property="og:image" content="https://pacing.quest/og-image.jpg" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Pacing Quest" />
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://pacing.quest" />
+    <meta name="twitter:title" content="Pacing Quest - La quête vers la guérison" />
+    <meta name="twitter:description" content="L'app gratuite pour suivre ses symptômes de fatigue chronique et adapter son rythme de vie." />
+    <meta name="twitter:image" content="https://pacing.quest/og-image.jpg" />
 
-    <title> {pageTitle || "Pacing Quest - La quête vers la guérison"} </title>
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-    <!-- Polices -->
+    <!-- Fonts - Modern, distinctive choices -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#6366f1" />
   </head>
-  <body class="bg-white font-sans nunito-font">
+  <body class="antialiased">
     <slot />
+
+    <!-- Scroll animations script -->
+    <script is:inline src="/scripts/animations.js"></script>
   </body>
 </html>

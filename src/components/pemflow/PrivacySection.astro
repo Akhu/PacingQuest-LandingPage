@@ -1,40 +1,89 @@
 ---
 const privacyPoints = [
   {
-    title: "Pas de création de compte, pas besoin de réseau.",
+    title: "Pas de création de compte, pas besoin de réseau",
     icon: "/images/pacingquest/webp/identification_card_3d.webp",
     description: "Utilisez l'application même sans connexion internet, aucune donnée n'est envoyée à des serveurs distants."
   },
   {
-    title: "Les fonctionnalités IA se font à 100% sur votre appareil.",
+    title: "Les fonctionnalités IA se font à 100% sur votre appareil",
     icon: "/images/pacingquest/webp/sparkles_3d.webp",
     description: "L'intelligence artificielle fonctionne localement sur votre téléphone, garantissant la confidentialité de vos données."
   },
   {
-    title: "Récupérez vos données en format tableur, vous êtes en total contrôle de vos données.",
+    title: "Récupérez vos données en format tableur, vous êtes en total contrôle",
     icon: "/images/pacingquest/webp/floppy_disk_3d.webp",
     description: "Exportez facilement vos données pour les partager avec vos médecins ou les analyser vous-même."
   }
 ];
 ---
 
-<section id="privacy" class="section bg-indigo-50">
-  <h2 class="section-title">La santé, c'est privée.</h2>
-  <p class="section-subtitle">Nous prenons la confidentialité de vos données très au sérieux</p>
+<section id="privacy" class="section relative overflow-hidden bg-gradient-to-b from-indigo-50/50 via-indigo-50 to-amber-50/30">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
 
-  <div class="max-w-3xl mx-auto mt-12">
-    {privacyPoints.map(point => (
-      <div class="flex items-start mb-8 bg-white p-6 rounded-lg shadow-sm">
-        <div class="shrink-0 mr-4">
-          <div class="w-12 h-12 flex items-center justify-center bg-amber-100 rounded-full p-2">
-            <img src={point.icon} alt={point.title} class="w-full h-full object-contain" />
+  <div class="relative container mx-auto max-w-7xl">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="section-title">
+        La santé,
+        <span class="relative inline-block">
+          <span class="relative z-10">c'est privé</span>
+          <span class="absolute bottom-2 left-0 w-full h-3 bg-indigo-300/30"></span>
+        </span>
+      </h2>
+      <p class="section-subtitle">Nous prenons la confidentialité de vos données très au sérieux</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-6">
+      {privacyPoints.map((point, index) => (
+        <article class={`group relative animate-on-scroll animate-delay-${index + 1}`}>
+          <!-- Hover glow effect -->
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-amber-500 rounded-3xl opacity-0 group-hover:opacity-20 blur transition duration-500"></div>
+
+          <!-- Card content -->
+          <div class="relative flex flex-col sm:flex-row items-start gap-6 p-8 md:p-10 glass-card rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/30">
+            <!-- Icon -->
+            <div class="shrink-0">
+              <div class="relative w-16 h-16 flex items-center justify-center">
+                <div class="absolute inset-0 bg-gradient-to-br from-amber-200 to-amber-100 rounded-2xl transform group-hover:rotate-6 transition-transform duration-500"></div>
+                <div class="relative p-3">
+                  <img src={point.icon} alt="" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1">
+              <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                {point.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                {point.description}
+              </p>
+            </div>
+
+            <!-- Checkmark icon -->
+            <div class="shrink-0 self-center">
+              <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center group-hover:bg-indigo-200 transition-colors">
+                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">{point.title}</h3>
-          <p class="text-gray-600">{point.description}</p>
-        </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Trust Badge -->
+    <div class="mt-16 text-center animate-on-scroll animate-delay-4">
+      <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-full border border-indigo-200/50 shadow-md">
+        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        <span class="text-gray-700 font-medium">100% privé, 0% tracking, vos données restent sur votre appareil</span>
       </div>
-    ))}
+    </div>
   </div>
 </section>
