@@ -1,5 +1,7 @@
 // Pacing Quest — motion layer
 // Patterns: scroll progress, header frost, scroll-reveal + stagger, magnetic buttons, parallax blobs.
+// Reveal is purely additive: content is visible by default (see .js gating in CSS),
+// and a backstop guarantees nothing ever stays hidden if the observer doesn't fire.
 
 (function () {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -27,51 +29,44 @@
     }
 
     // --- Scroll-reveal with stagger (data-reveal / data-stagger) ---
-    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealEls = [...document.querySelectorAll('[data-reveal]')];
     if (revealEls.length) {
-      if (prefersReduced) {
-        revealEls.forEach((el) => el.classList.add('is-visible'));
+      const reveal = (el) => {
+        const parent = el.closest('[data-stagger]');
+        if (parent && !el.style.transitionDelay) {
+          const idx = [...parent.children].indexOf(el);
+          el.style.transitionDelay = `${idx * 90}ms`;
+        }
+        el.classList.add('is-visible');
+      };
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        revealEls.forEach(reveal);
       } else {
         const io = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
-              const el = entry.target;
-              const parent = el.closest('[data-stagger]');
-              if (parent && !el.style.transitionDelay) {
-                const idx = [...parent.children].indexOf(el);
-                el.style.transitionDelay = `${idx * 90}ms`;
-              }
-              el.classList.add('is-visible');
-              io.unobserve(el);
+              reveal(entry.target);
+              io.unobserve(entry.target);
             });
           },
           { threshold: 0.08, rootMargin: '0px 0px -48px 0px' }
         );
         revealEls.forEach((el) => io.observe(el));
-      }
-    }
 
-    // --- Legacy animate-on-scroll support ---
-    const legacyEls = document.querySelectorAll('.animate-on-scroll');
-    if (legacyEls.length && !prefersReduced) {
-      const lio = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            lio.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-      );
-      legacyEls.forEach((el) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        lio.observe(el);
-      });
+        // Reveal anything already in view immediately (don't wait for the first callback)
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        revealEls.forEach((el) => {
+          const r = el.getBoundingClientRect();
+          if (r.top < vh && r.bottom > 0) reveal(el);
+        });
+
+        // Backstop: never let content stay hidden if the observer misbehaves
+        const backstop = () => revealEls.forEach(reveal);
+        window.addEventListener('load', () => setTimeout(backstop, 1600));
+        setTimeout(backstop, 4000);
+      }
     }
 
     if (prefersReduced) return;

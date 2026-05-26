@@ -30,6 +30,9 @@ const structuredData = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Progressive enhancement: only hide scroll-reveal content when JS is alive -->
+    <script is:inline>document.documentElement.classList.add('js')</script>
+
     <!-- SEO Meta Tags -->
     <title>{pageTitle || "Pacing Quest - Application gratuite de gestion de la fatigue chronique et EM/SFC"}</title>
     <meta name="description" content={metaDescription || "Pacing Quest est l'application 100% gratuite et privée pour suivre vos symptômes de fatigue chronique, EM/SFC, Covid Long et adapter votre rythme de vie. Par les patients, pour les patients."} />
