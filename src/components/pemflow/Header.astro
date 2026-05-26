@@ -6,12 +6,12 @@ import SecondaryButton from '../global/SecondaryButton.astro';
 
 <header class="relative min-h-screen gradient-mesh overflow-hidden">
   <!-- Decorative gradient orbs -->
-  <div class="absolute top-0 left-0 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-  <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+  <div class="parallax-blob absolute top-0 left-0 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="parallax-blob absolute bottom-0 right-0 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
 
-  <!-- Navigation -->
-  <nav class="relative z-10 container mx-auto px-4 md:px-8 max-w-7xl py-6 md:py-8">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+  <!-- Navigation (sticky frosted) -->
+  <nav id="site-header" class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-5">
+    <div class="container mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center space-x-3 animate-on-scroll">
         <div class="relative">
           <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-amber-500 rounded-2xl blur opacity-40"></div>
@@ -39,7 +39,7 @@ import SecondaryButton from '../global/SecondaryButton.astro';
 
   <!-- Hero Content -->
   <div class="relative z-10 container mx-auto px-4 md:px-8 max-w-7xl">
-    <div class="flex flex-col items-center justify-center min-h-[calc(100vh-120px)] text-center py-12 md:py-20">
+    <div class="flex flex-col items-center justify-center min-h-screen text-center pt-28 pb-16 md:pt-32 md:pb-20">
 
       <!-- Main Heading -->
       <div class="space-y-6 mb-12 animate-on-scroll animate-delay-2">
