@@ -64,7 +64,7 @@ npm run preview   # serve dist/
 - Social image: `scripts/og-image.html` (screenshot it at 1200×630 into `public/images/pacingquest/og-pacing-quest.jpg`)
 
 ### ⚠️ Deployment
-`.github/workflows/main.yml` builds and publishes to Cloudflare Pages (`branch: main`) **on every push, whatever the branch**.
+`.github/workflows/main.yml` builds and publishes to Cloudflare Pages (`branch: main`) **only on pushes to `main`**: feature branches are never deployed.
 
 ---
 
