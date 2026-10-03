@@ -1,45 +1,26 @@
 ---
 export interface Props {
   title: string;
-  description?: string;
+  description: string;
   iconSrc: string;
-  link?: string;
 }
 
-const { title, description, iconSrc, link } = Astro.props;
+const { title, description, iconSrc } = Astro.props;
 ---
 
-<article class="group relative">
-  <!-- Glow effect on hover -->
-  <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-amber-500 rounded-3xl opacity-0 group-hover:opacity-20 blur transition duration-500"></div>
+<article class="group relative h-full">
+  <div class="absolute -inset-0.5 rounded-3xl bg-gradient-to-r from-indigo-500 to-amber-500 opacity-0 blur transition duration-500 group-hover:opacity-20" aria-hidden="true"></div>
 
-  <!-- Card content -->
-  <div class="relative flex flex-col items-center text-center p-8 md:p-10 glass-card rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full border border-white/20">
-    <!-- Icon with animated background -->
-    <div class="relative w-24 h-24 flex items-center justify-center mb-6">
-      <div class="absolute inset-0 bg-gradient-to-br from-amber-200 to-amber-100 rounded-2xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
-      <div class="absolute inset-0 bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl transform -rotate-6 group-hover:-rotate-12 transition-transform duration-500"></div>
-      <div class="relative w-16 h-16 p-3">
-        <img src={iconSrc} alt="" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-      </div>
+  <div class="glass-card relative flex h-full flex-row items-start gap-5 rounded-3xl border border-white/20 p-6 text-left transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl sm:flex-col sm:items-center sm:gap-0 sm:p-8 sm:text-center md:p-9">
+    <div class="relative flex h-16 w-16 shrink-0 items-center justify-center sm:mb-6 sm:h-20 sm:w-20" aria-hidden="true">
+      <div class="absolute inset-0 rotate-6 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-100 transition-transform duration-500 group-hover:rotate-12"></div>
+      <div class="absolute inset-0 -rotate-6 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 transition-transform duration-500 group-hover:-rotate-12"></div>
+      <img src={iconSrc} alt="" width="56" height="56" class="relative h-11 w-11 object-contain transition-transform duration-500 group-hover:scale-110 sm:h-14 sm:w-14" loading="lazy" decoding="async" />
     </div>
 
-    <!-- Content -->
-    <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">{title}</h3>
-
-    <div class="space-y-4 flex flex-col flex-grow">
-      {description && <p class="text-gray-600 leading-relaxed">{description}</p>}
-      {link && (
-        <a
-          href={link}
-          class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium transition-colors mt-auto"
-        >
-          Plus d'infos
-          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </a>
-      )}
+    <div>
+      <h3 class="mb-2 text-xl font-semibold text-gray-900 sm:mb-3 md:text-2xl">{title}</h3>
+      <p class="leading-relaxed text-gray-600">{description}</p>
     </div>
   </div>
 </article>

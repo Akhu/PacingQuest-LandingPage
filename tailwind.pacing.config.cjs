@@ -11,9 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-        title: ['Fraunces', ...defaultTheme.fontFamily.serif],
-        prosetitle: ['Fraunces', ...defaultTheme.fontFamily.serif],
+        sans: ['Nunito Variable', 'Nunito', ...defaultTheme.fontFamily.sans],
+        title: ['Fraunces Variable', 'Fraunces', ...defaultTheme.fontFamily.serif],
+        prosetitle: ['Fraunces Variable', 'Fraunces', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         // Brand — terracotta / warm clay

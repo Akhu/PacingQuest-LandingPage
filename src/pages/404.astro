@@ -1,14 +1,35 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-const giphyUri = "https://api.giphy.com/v1/gifs/random?api_key=gUDP1beHuekoonSB2Nim24tYJ6BM0pas&tag=lost";
-const giphyResponse = await fetch(giphyUri);
-const giphyData = await giphyResponse.json();
-const gifUri = giphyData.data.images.fixed_width.webp;
+export const prerender = true;
+import PEMFlowLayout from '../layouts/PEMFlowLayout.astro';
+import { SITE_NAME } from '../data/pacing-quest.js';
+
+const links = [
+  { href: '/', label: "Revenir à l'accueil", primary: true },
+  { href: '/mises-a-jour/', label: 'Voir les mises à jour', primary: false },
+  { href: '/#faq', label: 'Lire la FAQ', primary: false },
+];
 ---
-<BaseLayout pageTitle="Oops">
-    <div class="text-center flex flex-col text-slate-900 dark:text-zinc-100 items-center space-y-10">
-        <h1 class="text-4xl font-title font-black">Oops - 404 🫖</h1>
-        <p>Il semble que vous soyez perdu :( <br/> Voilà un petit Gif pour la route !</p>
-        <img id="lost-gif" src={gifUri} alt="Lost gif" width="500" class="rounded-xl shadow-lg"/>
+
+<PEMFlowLayout
+  title={`Page introuvable – ${SITE_NAME}`}
+  description="Cette page n'existe pas ou a été déplacée."
+  noindex
+>
+  <section class="gradient-mesh relative flex min-h-[80vh] items-center px-4 pb-20 pt-32 md:px-8" aria-labelledby="not-found-title">
+    <div class="container relative z-10 mx-auto max-w-2xl text-center">
+      <img src="/images/pacingquest/optimized/woman_in_lotus_position_3d_default-128.webp" alt="" width="96" height="96" class="mx-auto mb-6 h-24 w-24" />
+      <p class="mb-3 text-sm font-bold uppercase tracking-wider text-indigo-700">Erreur 404</p>
+      <h1 id="not-found-title" class="mb-5 text-4xl font-semibold text-gray-900 md:text-6xl">Cette page s'est mise en pause</h1>
+      <p class="mb-10 text-lg text-gray-700 md:text-xl">
+        Elle n'existe pas ou a été déplacée. Prenez votre temps, et reprenez par l'un de ces liens.
+      </p>
+      <ul class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+        {links.map(({ href, label, primary }) => (
+          <li>
+            <a href={href} class={`btn ${primary ? 'btn-primary' : 'btn-secondary'}`}>{label}</a>
+          </li>
+        ))}
+      </ul>
     </div>
-</BaseLayout>
+  </section>
+</PEMFlowLayout>

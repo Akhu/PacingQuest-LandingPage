@@ -1,6 +1,9 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Pacing Quest",
+    "short_name": "Pacing Quest",
+    "description": "Journal de suivi quotidien pour iPhone, pensé pour le pacing, l'EM/SFC et le Covid long.",
+    "lang": "fr",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +16,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+    "theme_color": "#fdf8f2",
+    "background_color": "#fdf8f2",
+    "display": "browser"
 }
