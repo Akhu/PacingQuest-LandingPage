@@ -1,0 +1,67 @@
+---
+import { SITE_NAME, LOGO_SRC } from '../../data/pacing-quest.js';
+
+const links = [
+  { href: '/#fonctionnalites', label: 'Fonctionnalités' },
+  { href: '/#confidentialite', label: 'Confidentialité' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/mises-a-jour/', label: 'Mises à jour' },
+];
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) => !href.includes('#') && currentPath.startsWith(href);
+
+const heartIcon = '<svg class="hidden h-4 w-4 min-[380px]:block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/></svg>';
+---
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50">
+  <div class="container mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 md:px-8">
+    <a href="/" class="flex min-w-0 items-center gap-2 rounded-2xl pr-1 md:gap-2.5">
+      <img src={LOGO_SRC} alt="" width="48" height="48" class="h-9 w-9 shrink-0 md:h-12 md:w-12" />
+      <span class="whitespace-nowrap font-title text-lg font-semibold tracking-tight text-gray-900 sm:text-xl md:text-2xl">{SITE_NAME}</span>
+    </a>
+
+    <nav aria-label="Navigation principale" class="flex shrink-0 items-center gap-1.5 md:gap-2">
+      <ul class="hidden items-center gap-1 md:flex">
+        {links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={isCurrent(href) ? 'page' : undefined}
+              class="rounded-full px-3 py-2 font-semibold text-gray-700 transition-colors hover:bg-white/70 hover:text-indigo-700 aria-[current=page]:bg-white/80 aria-[current=page]:text-indigo-700"
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <a href="/#soutenir" class="btn btn-support min-h-11 gap-1.5 px-3 py-2 text-sm md:ml-2 md:min-h-0 md:px-4 md:text-base">
+        <Fragment set:html={heartIcon} />
+        Soutenir
+      </a>
+
+      <details class="mobile-menu relative md:hidden">
+        <summary class="flex h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3 font-semibold text-gray-800 ring-1 ring-inset ring-gray-300 hover:bg-white/70">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <span class="sr-only sm:not-sr-only">Menu</span>
+        </summary>
+        <ul class="absolute right-0 mt-3 w-60 rounded-2xl border border-gray-200 bg-white p-2 shadow-xl">
+          {links.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                aria-current={isCurrent(href) ? 'page' : undefined}
+                class="block rounded-xl px-4 py-3 font-semibold text-gray-800 hover:bg-indigo-50 hover:text-indigo-700 aria-[current=page]:text-indigo-700"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>

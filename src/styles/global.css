@@ -1,153 +1,8 @@
 @import "tailwindcss";
 @config "../../tailwind.pacing.config.cjs";
-@layer base {
-    @font-face {
-        font-family: 'IBM Plex Mono';
-        src: url(../../fonts/IBMPlexMono-Medium.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Bold';
-        src: url(../../public/fonts/IBMPlexMono-Bold.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono SemiBold';
-        src: url(../../fonts/IBMPlexMono-SemiBold.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Italic';
-        src: url(../../fonts/IBMPlexMono-Italic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono SemiBold Italic';
-        src: url(../../fonts/IBMPlexMono-SemiBoldItalic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Bold Italic';
-        src: url(../../fonts/IBMPlexMono-BoldItalic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono ExtraLight';
-        src: url(../../fonts/IBMPlexMono-ExtraLight.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono ExtraLight Italic';
-        src: url(../../fonts/IBMPlexMono-ExtraLightItalic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Light';
-        src: url(../../fonts/IBMPlexMono-Light.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Light Italic';
-        src: url(../../fonts/IBMPlexMono-LightItalic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Medium';
-        src: url(../../fonts/IBMPlexMono-Medium.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Medium Italic';
-        src: url(../../fonts/IBMPlexMono-MediumItalic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Thin';
-        src: url(../../fonts/IBMPlexMono-Thin.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Mono Thin Italic';
-        src: url(../../fonts/IBMPlexMono-ThinItalic.ttf) format('truetype');
-    }
-
-    /* sans */
-    /* Thin */
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 100;
-        src: url(./fonts/IBMPlexSans-Thin.ttf) format('truetype');
-    }
-    /* Extra Light */
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 200;
-        src: url(./fonts/IBMPlexSans-ExtraLight.ttf) format('truetype');
-    }
-
-    /* Light */
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 300;
-        src: url(./fonts/IBMPlexSans-Light.ttf) format('truetype');
-    }
-
-
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 400;
-        src: url(./fonts/IBMPlexSans-Regular.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 700;
-        src: url(./fonts/IBMPlexSans-Bold.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 600;
-        src: url(./fonts/IBMPlexSans-SemiBold.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 500;
-        src: url(./fonts/IBMPlexSans-Medium.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 400;
-        font-style: italic;
-        src: url(./fonts/IBMPlexSans-Italic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 600;
-        font-style: italic;
-        src: url(./fonts/IBMPlexSans-SemiBoldItalic.ttf) format('truetype');
-    }
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 700;
-        font-style: italic;
-        src: url(./fonts/IBMPlexSans-BoldItalic.ttf) format('truetype');
-    }
-    /* medium italic */
-    @font-face {
-        font-family: 'IBM Plex Sans';
-        font-weight: 500;
-        font-style: italic;
-        src: url(./fonts/IBMPlexSans-MediumItalic.ttf) format('truetype');
-    }
-
-    /* Serif title */
-    @font-face {
-        font-family: 'Prata';
-        font-weight: 400;
-        src: url(./fonts/Prata-Regular.ttf) format('truetype');
-    }
-}
-
-/* nav styles */
-.hamburger {
-    padding-right: 20px;
-    cursor: pointer;
-}
-
-.hamburger .line {
-    display: block;
-
-
-}
 
 :root {
-    /* Dawn / Healing palette — warm, restorative */
+    /* Dawn palette — warm, restorative */
     --primary-color: #c14f26;   /* terracotta */
     --primary-dark: #a03e20;
     --secondary-color: #d9881d; /* honey */
@@ -159,49 +14,130 @@
     --light-bg: #fdf8f2;        /* oat / cream */
     --glass-bg: rgba(255, 251, 246, 0.72);
     --glass-border: rgba(255, 246, 235, 0.55);
+    --focus-ring: #a03e20;
+    --header-height: 4.5rem;
 }
 
 * {
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--text-color);
-    line-height: 1.7;
-    background: var(--light-bg);
-    overflow-x: hidden;
+/* Legacy portfolio nav (about page) */
+.hamburger {
+    padding-right: 20px;
+    cursor: pointer;
 }
 
-/* Typography System */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.015em;
-    font-variation-settings: 'opsz' 72;
+.hamburger .line {
+    display: block;
 }
 
-/* Modern Button Styles */
+html {
+    scroll-behavior: smooth;
+    /* Anchored sections land below the fixed header */
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+/* Base typography lives in the base layer so Tailwind utilities can override it */
+@layer base {
+    body {
+        font-family: 'Nunito Variable', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text-color);
+        line-height: 1.7;
+        background: var(--light-bg);
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        line-height: 1.12;
+        letter-spacing: -0.015em;
+        font-variation-settings: 'opsz' 72;
+    }
+}
+
+/* Accessibility: visible keyboard focus everywhere, skip link */
+:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+}
+
+.on-dark :focus-visible {
+    --focus-ring: #eebb59;
+}
+
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 10000;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    background: var(--primary-dark);
+    color: #fff;
+    font-weight: 700;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+main:focus {
+    outline: none;
+}
+
+/* Buttons — white on terracotta-600/700 keeps AA contrast (≥ 4.7:1) */
+.btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-bold leading-tight transition-[color,background-color,box-shadow,transform] duration-300 ease-out;
+    min-height: 3rem;
+}
+
 .btn-primary {
-    @apply relative bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-medium py-3 px-8 rounded-2xl transition-all duration-300 shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 hover:-translate-y-0.5;
+    @apply bg-indigo-600 text-white shadow-md shadow-indigo-900/15 hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-900/25;
 }
 
 .btn-secondary {
-    @apply relative bg-white/80 backdrop-blur-sm hover:bg-white text-indigo-600 border-2 border-indigo-200 hover:border-indigo-300 font-medium py-3 px-8 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+    @apply bg-white/85 text-indigo-700 ring-2 ring-inset ring-indigo-200 shadow-sm hover:bg-white hover:ring-indigo-300 hover:shadow-md;
+}
+
+.btn-support {
+    @apply bg-amber-100 text-amber-900 ring-2 ring-inset ring-amber-300/70 shadow-sm hover:bg-amber-200 hover:shadow-md;
+}
+
+/* Inline text links inside copy (FAQ answers, notes) */
+.text-link,
+.prose-answer a {
+    @apply font-semibold text-indigo-700 underline decoration-indigo-300 decoration-2 underline-offset-4 hover:decoration-indigo-700;
+}
+
+.prose-answer p + p {
+    margin-top: 0.75rem;
+}
+
+.prose-answer ul {
+    @apply list-disc space-y-1.5 pl-5 marker:text-indigo-400;
 }
 
 /* Section Styles */
 .section {
-    @apply py-20 md:py-32 px-4 md:px-8 relative;
+    @apply py-20 md:py-28 px-4 md:px-8 relative;
 }
 
 .section-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center;
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 text-center text-gray-900;
 }
 
 .section-subtitle {
-    @apply text-lg md:text-xl text-gray-600 mb-16 text-center max-w-2xl mx-auto;
+    @apply text-lg md:text-xl text-gray-600 mb-14 text-center max-w-2xl mx-auto;
+}
+
+/* Gradient headline accent — darker stops keep ≥ 5:1 contrast on cream */
+.text-gradient {
+    @apply bg-gradient-to-r from-indigo-700 via-purple-700 to-amber-700 bg-clip-text text-transparent;
 }
 
 /* Glass Card Effect */
@@ -213,13 +149,15 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
+/* Icon tile used by feature / privacy cards */
+.icon-tile {
+    @apply relative flex shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-200 to-amber-100;
+}
+
 /* Gradient Backgrounds */
 .gradient-mesh {
     position: relative;
     overflow: hidden;
-}
-
-.gradient-mesh {
     background:
         radial-gradient(110% 90% at 50% -10%, rgba(255, 240, 224, 0.9) 0%, transparent 60%),
         linear-gradient(180deg, #fdeede 0%, #fdf8f2 60%, #fdf8f2 100%);
@@ -257,36 +195,28 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-@keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes scale-in {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes glow-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+/* Transform-only entrance: never hides the LCP element */
+@keyframes rise {
+    from { transform: translateY(18px); }
+    to { transform: translateY(0); }
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-14px); }
 }
 
-/* Scroll Animation Classes */
 .animate-on-scroll {
     opacity: 0;
     animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-rise {
+    animation: rise 0.8s ease-out both;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
 }
 
 .animate-delay-1 { animation-delay: 0.1s; }
@@ -323,19 +253,40 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Sticky frosted header */
 #site-header {
-    transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease, padding 0.35s ease;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
-#site-header.scrolled {
-    background: rgba(255, 255, 255, 0.72);
+#site-header.scrolled,
+#site-header:has(details[open]) {
+    background: rgba(253, 248, 242, 0.85);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 4px 24px -8px rgba(31, 38, 135, 0.18);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 24px -8px rgba(60, 30, 20, 0.18);
+}
+
+/* Mobile menu (native <details>, works without JS) */
+.mobile-menu > summary {
+    list-style: none;
+    cursor: pointer;
+}
+.mobile-menu > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* FAQ disclosure chevron */
+.faq-item > summary {
+    list-style: none;
+    cursor: pointer;
+}
+.faq-item > summary::-webkit-details-marker {
+    display: none;
+}
+.faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
 }
 
 /* Magnetic buttons */
 .btn-magnetic {
-    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background-color 0.3s ease;
     will-change: transform;
 }
 
@@ -346,56 +297,33 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
     [data-reveal] {
         opacity: 1 !important;
         transform: none !important;
-        transition: none !important;
     }
     .animate-on-scroll {
         opacity: 1 !important;
+        animation: none !important;
+    }
+    .animate-float,
+    .animate-rise,
+    .gradient-mesh::before {
         animation: none !important;
     }
     .parallax-blob,
     .btn-magnetic {
         transform: none !important;
     }
-    .gradient-mesh::before {
-        animation: none !important;
-    }
     html {
         scroll-behavior: auto;
     }
-}
-
-/* Hover Glow Effect */
-.hover-glow {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.hover-glow::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.hover-glow:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */
@@ -415,4 +343,3 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #a03e20, #bd6915);
 }
-

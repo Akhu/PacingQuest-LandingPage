@@ -1,56 +1,71 @@
 ---
 import FeatureItem from './FeatureItem.astro';
 
+const icon = (name: string) => `/images/pacingquest/optimized/${name}-128.webp`;
+
 const features = [
   {
-    title: "Notez simplement la qualité de sommeil",
-    iconSrc: "/images/pacingquest/webp/person_in_bed_3d_default.webp",
-    description: "Suivez facilement votre sommeil pour identifier les tendances et améliorations."
+    title: 'La météo du jour',
+    iconSrc: icon('sparkles_3d'),
+    description: "Résumez votre état d'un geste : soleil, mitigé ou orage.",
   },
   {
-    title: "Exprimez les activités sur une échelle simple et officielle",
-    iconSrc: "/images/pacingquest/webp/kite_3d.webp",
-    description: "Utilisez une échelle imaginée pour le Pacing par Stanford (USA) pour mesurer votre niveau d'activité quotidien.",
-    link: "/Outil_PlanEvitementCrash_Stanford_FR.pdf"
+    title: 'Votre fatigue de 1 à 10',
+    iconSrc: icon('person_in_bed_3d_default'),
+    description: 'Un simple curseur pour noter votre niveau de fatigue du jour.',
   },
   {
-    title: "Prendre note des crashes et de vos symptômes",
-    iconSrc: "/images/pacingquest/webp/card_file_box_3d.webp",
-    description: "Documentez vos symptômes et les moments difficiles pour mieux les comprendre."
-  }
+    title: 'Vos activités',
+    iconSrc: icon('kite_3d'),
+    description: 'Mentales, physiques, émotionnelles : notez leur intensité pour repérer celles qui vous demandent le plus d’énergie.',
+  },
+  {
+    title: 'Vos symptômes',
+    iconSrc: icon('clipboard_3d'),
+    description: 'Douleurs, troubles digestifs ou cognitifs… gardez une trace de ce que vous ressentez.',
+  },
+  {
+    title: 'Sommeil et crashs',
+    iconSrc: icon('woman_in_lotus_position_3d_default'),
+    description: 'Indiquez si votre sommeil a été réparateur et si vous avez traversé un crash.',
+  },
+  {
+    title: 'Un journal personnel',
+    iconSrc: icon('card_file_box_3d'),
+    description: 'Quelques lignes quand vous en avez envie, avec tri, recherche et analyse de l’humeur de vos notes.',
+  },
 ];
 ---
 
-<section id="features" class="section relative overflow-hidden">
-  <!-- Gradient background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-amber-50/50 via-white to-white"></div>
+<section id="fonctionnalites" class="section relative overflow-hidden" aria-labelledby="fonctionnalites-title">
+  <div class="absolute inset-0 bg-gradient-to-b from-amber-50/50 via-white to-white" aria-hidden="true"></div>
+  <div class="parallax-blob absolute right-0 top-20 h-72 w-72 rounded-full bg-amber-300/10 blur-3xl" aria-hidden="true"></div>
+  <div class="parallax-blob absolute bottom-0 left-0 h-96 w-96 rounded-full bg-indigo-300/10 blur-3xl" aria-hidden="true"></div>
 
-  <!-- Decorative elements -->
-  <div class="parallax-blob absolute top-20 right-0 w-72 h-72 bg-amber-300/10 rounded-full blur-3xl"></div>
-  <div class="parallax-blob absolute bottom-0 left-0 w-96 h-96 bg-indigo-300/10 rounded-full blur-3xl"></div>
-
-  <div class="relative container mx-auto max-w-7xl">
-    <div class="text-center mb-16 animate-on-scroll">
-      <h2 class="section-title">
-        Prendre en main<br/>
-        <span class="bg-gradient-to-r from-indigo-600 to-amber-500 bg-clip-text text-transparent">
-          sa guérison
-        </span>
+  <div class="container relative mx-auto max-w-7xl">
+    <div class="mb-14 text-center">
+      <h2 id="fonctionnalites-title" class="section-title">
+        Un suivi quotidien,<br />
+        <span class="text-gradient">simple et doux</span>
       </h2>
-      <p class="section-subtitle">Des outils simples mais puissants pour suivre vos symptômes</p>
+      <p class="section-subtitle">
+        Quelques curseurs, quelques mots : de quoi garder une trace de vos journées sans vous épuiser à le faire.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10" data-stagger>
+    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" data-stagger>
       {features.map((feature) => (
-        <div data-reveal>
-          <FeatureItem
-            title={feature.title}
-            iconSrc={feature.iconSrc}
-            description={feature.description}
-            link={feature.link}
-          />
-        </div>
+        <li data-reveal>
+          <FeatureItem {...feature} />
+        </li>
       ))}
-    </div>
+    </ul>
+
+    <p class="mx-auto mt-12 flex max-w-2xl items-center justify-center gap-3 rounded-2xl bg-white/80 px-5 py-3 text-left font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-200 sm:w-fit sm:rounded-full">
+      <svg class="h-5 w-5 shrink-0 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0a3 3 0 11-6 0" />
+      </svg>
+      Et si vous le souhaitez, un rappel quotidien pour penser à remplir votre journée.
+    </p>
   </div>
 </section>

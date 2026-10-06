@@ -1,24 +1,73 @@
 ---
-export const prerender = true
+export const prerender = true;
 import PEMFlowLayout from '../layouts/PEMFlowLayout.astro';
-import Header from '../components/pemflow/Header.astro';
+import Hero from '../components/pemflow/Hero.astro';
 import FeaturesSection from '../components/pemflow/FeaturesSection.astro';
 import VisualizeSection from '../components/pemflow/VisualizeSection.astro';
 import PrivacySection from '../components/pemflow/PrivacySection.astro';
 import SymptomsSection from '../components/pemflow/SymptomsSection.astro';
-import Footer from '../components/pemflow/Footer.astro';
+import SupportSection from '../components/pemflow/SupportSection.astro';
+import FaqSection from '../components/pemflow/FaqSection.astro';
+import {
+  SITE_NAME,
+  TAGLINE,
+  APP_STORE_URL,
+  CREATOR,
+  MIN_IOS_VERSION,
+  OG_IMAGE,
+  latestRelease,
+  faq,
+} from '../data/pacing-quest.js';
 
-const pageTitle = "Pacing Quest - La quête vers la guérison";
-const metaDescription = "Pacing Quest est une application 100% gratuite par les patients, pour les patients pour reprendre le dessus sur la maladie et adapter sa vie.";
+const title = `${SITE_NAME} – ${TAGLINE}`;
+const description =
+  "Journal de suivi quotidien pour iPhone : fatigue, activités, symptômes, sommeil et crashs. Pour le pacing, l'EM/SFC et le Covid long. Gratuit, sans compte.";
+
+const siteUrl = Astro.site!.href;
+
+// No aggregateRating on purpose: only publish ratings that can be verified.
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: SITE_NAME,
+    description,
+    url: siteUrl,
+    applicationCategory: 'HealthApplication',
+    operatingSystem: `iOS ${MIN_IOS_VERSION} ou version ultérieure`,
+    softwareVersion: latestRelease.version,
+    inLanguage: 'fr',
+    installUrl: APP_STORE_URL,
+    image: new URL(OG_IMAGE.src, siteUrl).href,
+    screenshot: new URL('/images/pacingquest/optimized/trends-512.webp', siteUrl).href,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    author: { '@type': 'Person', name: CREATOR.name, url: CREATOR.url },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: siteUrl,
+    inLanguage: 'fr',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer.replace(/\s+/g, ' ').trim() },
+    })),
+  },
+];
 ---
 
-<PEMFlowLayout pageTitle={pageTitle} metaDescription={metaDescription}>
-  <Header />
-  <main>
-    <FeaturesSection />
-    <VisualizeSection />
-    <PrivacySection />
-    <SymptomsSection />
-  </main>
-  <Footer />
+<PEMFlowLayout title={title} description={description} jsonLd={jsonLd}>
+  <Hero />
+  <FeaturesSection />
+  <VisualizeSection />
+  <PrivacySection />
+  <SymptomsSection />
+  <SupportSection />
+  <FaqSection />
 </PEMFlowLayout>

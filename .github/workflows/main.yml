@@ -1,4 +1,8 @@
-on: [push]
+# Deploys to the production Cloudflare Pages branch: only run for main,
+# so pushing a feature branch never publishes the site.
+on:
+  push:
+    branches: [main]
 
 jobs:
   publish:

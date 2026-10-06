@@ -15,7 +15,7 @@
         bar.style.width = max > 0 ? (window.scrollY / max) * 100 + '%' : '0%';
       };
       window.addEventListener('scroll', updateBar, { passive: true });
-      updateBar();
+      window.requestAnimationFrame(updateBar);
     }
 
     // --- Header frost on scroll ---
@@ -55,11 +55,13 @@
         );
         revealEls.forEach((el) => io.observe(el));
 
-        // Reveal anything already in view immediately (don't wait for the first callback)
-        const vh = window.innerHeight || document.documentElement.clientHeight;
-        revealEls.forEach((el) => {
-          const r = el.getBoundingClientRect();
-          if (r.top < vh && r.bottom > 0) reveal(el);
+        // Reveal anything already in view on the next frame (avoids a forced reflow at startup)
+        window.requestAnimationFrame(() => {
+          const vh = window.innerHeight || document.documentElement.clientHeight;
+          revealEls.forEach((el) => {
+            const r = el.getBoundingClientRect();
+            if (r.top < vh && r.bottom > 0) reveal(el);
+          });
         });
 
         // Backstop: never let content stay hidden if the observer misbehaves
@@ -68,6 +70,27 @@
         setTimeout(backstop, 4000);
       }
     }
+
+    // --- Mobile menu (<details>): close on link click or Escape ---
+    document.querySelectorAll('.mobile-menu').forEach((menu) => {
+      menu.addEventListener('click', (e) => {
+        if (e.target.closest('a')) menu.open = false;
+      });
+      menu.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape' || !menu.open) return;
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      });
+    });
+
+    // --- Open the FAQ entry targeted by the URL hash (e.g. /#faq-contact) ---
+    const openTargetedDetails = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      const target = id && document.getElementById(id);
+      if (target instanceof HTMLDetailsElement) target.open = true;
+    };
+    window.addEventListener('hashchange', openTargetedDetails);
+    openTargetedDetails();
 
     if (prefersReduced) return;
 

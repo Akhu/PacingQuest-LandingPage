@@ -1,0 +1,63 @@
+---
+import { APP_STORE_URL, KOFI_URL } from '../../data/pacing-quest.js';
+
+const otherWays = [
+  { label: "Laisser une note sur l'App Store", href: APP_STORE_URL },
+  { label: "Parler de l'app à quelqu'un qu'elle pourrait aider", href: null },
+  { label: 'Envoyer une idée ou signaler un bug', href: '/#faq-contact' },
+];
+---
+
+<section id="soutenir" class="section relative overflow-hidden bg-gradient-to-b from-indigo-100/50 via-amber-50 to-amber-50/40" aria-labelledby="soutenir-title">
+  <div class="parallax-blob absolute left-0 top-10 h-80 w-80 rounded-full bg-amber-300/20 blur-3xl" aria-hidden="true"></div>
+  <div class="parallax-blob absolute bottom-0 right-0 h-96 w-96 rounded-full bg-purple-300/15 blur-3xl" aria-hidden="true"></div>
+
+  <div class="container relative mx-auto max-w-5xl">
+    <div class="glass-card overflow-hidden rounded-[2rem] border border-white/40 shadow-2xl">
+      <div class="grid gap-0 md:grid-cols-5">
+        <div class="p-8 md:col-span-3 md:p-12">
+          <p class="mb-3 inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-sm font-bold text-amber-900">
+            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
+              <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+            </svg>
+            Projet indépendant
+          </p>
+          <h2 id="soutenir-title" class="mb-5 text-3xl font-semibold text-gray-900 md:text-4xl">
+            Une app gratuite, <span class="text-gradient">que vous pouvez soutenir</span>
+          </h2>
+          <div class="space-y-4 text-lg leading-relaxed text-gray-700">
+            <p>
+              Pacing Quest est gratuite, sans publicité, et conçue par un développeur indépendant.
+            </p>
+            <p>
+              Si l'app vous est utile et que vous en avez la possibilité, un don sur Ko-fi aide à la maintenir et à la faire évoluer.
+            </p>
+            <p class="text-gray-600">
+              Et si ce n'est pas le moment, aucun souci : l'app reste gratuite, avec ou sans don.
+            </p>
+          </div>
+          <a href={KOFI_URL} class="btn btn-primary btn-magnetic mt-8 px-7">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h1a3 3 0 010 6h-1M3 8h14v6a5 5 0 01-5 5H8a5 5 0 01-5-5V8zM7 2v2m4-2v2" />
+            </svg>
+            Faire un don sur Ko-fi
+          </a>
+        </div>
+
+        <div class="border-t border-white/50 bg-white/50 p-8 md:col-span-2 md:border-l md:border-t-0 md:p-12">
+          <h3 class="mb-5 text-xl font-semibold text-gray-900">D'autres façons d'aider</h3>
+          <ul class="space-y-4">
+            {otherWays.map(({ label, href }) => (
+              <li class="flex items-start gap-3 text-gray-700">
+                <svg class="mt-1 h-5 w-5 shrink-0 text-sage-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 01.006 1.414l-7.25 7.3a1 1 0 01-1.42 0l-3.75-3.775a1 1 0 111.42-1.41l3.04 3.06 6.54-6.585a1 1 0 011.414-.004z" clip-rule="evenodd" />
+                </svg>
+                {href ? <a href={href} class="text-link font-semibold">{label}</a> : <span>{label}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

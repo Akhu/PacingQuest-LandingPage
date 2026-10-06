@@ -1,88 +1,81 @@
 # 🏃 PacingQuest Landing Page
 
-> La quête vers la guérison — Des outils simples mais puissants pour suivre vos symptômes
+> Suivez vos symptômes à votre rythme — a daily symptom journal for iPhone
 
-**Site web:** [pacing.quest](https://pacing.quest)
+**Website:** [pacing.quest](https://pacing.quest)
 
-Landing page for **PacingQuest**, an app designed to help people with chronic illnesses manage their energy and track their recovery journey.
+Landing page for **Pacing Quest**, a free iPhone journal that helps people who practice pacing keep track of their days: fatigue, activities, symptoms, sleep and crashes.
 
 ---
 
-## 🎯 About PacingQuest
+## 🎯 About Pacing Quest
 
-PacingQuest is a **privacy-first health tracking app** for people dealing with:
-- 🦠 **Long COVID** (Covid Long)
+Pacing Quest is designed for people managing their energy day to day, for example with:
+- 🦠 **Long COVID** (Covid long)
 - 😴 **ME/CFS** (Myalgic Encephalomyelitis / Chronic Fatigue Syndrome)
-- 💪 **Fibromyalgia**
-- 🔋 **Post-Exertional Malaise** (PEM)
-- 🧠 **Brain fog & cognitive issues**
-- And other chronic conditions requiring energy management ("pacing")
+- 🔋 **Post-Exertional Malaise** (PEM) and crashes
+- 🧠 **Brain fog**, chronic pain and other energy-limiting conditions
+
+It is a **personal tracking tool**: it does not diagnose anything and does not give medical advice.
 
 ---
 
-## ✨ Key Features
+## ✨ Features (available today)
 
-### 📊 Simple & Powerful Tracking
-- **Sleep quality** — easily track your sleep to identify trends
-- **Activity levels** — using Stanford's official pacing scale
-- **Crashes & symptoms** — document difficult moments to understand patterns
+Source of truth: the App Store listing, the [CGU](src/pages/cgu.md) and the app screenshots. Every product fact shown on the site lives in [`src/data/pacing-quest.js`](src/data/pacing-quest.js).
 
-### 📈 Visualize & Understand
-- **Weekly trends** — see your progress over time
-- **Clear graphs** — identify what helps and what worsens symptoms
-- **Pattern recognition** — adjust your daily life to improve well-being
+- **Daily check-in**: "weather of the day" (sunny / mixed / stormy), fatigue from 1 to 10
+- **Activities**: intensity of mental, physical and emotional activities
+- **Symptoms, sleep & crashes**
+- **Personal journal** with sorting, search and mood analysis (v1.2)
+- **Trends & charts** up to 12 months
+- **Daily reminder** notification (v1.1)
+- **CSV export**
 
-### 🔒 Privacy First
-- ✅ **No account needed** — use the app offline, no data sent to servers
-- ✅ **100% on-device AI** — all intelligence runs locally on your phone
-- ✅ **Data export** — export as spreadsheet, share with doctors, you own your data
+### 🔒 Privacy
+- No account needed
+- Data stored on the iPhone, no remote server (see CGU)
+- App Store privacy label: "Data Not Collected"
+
+Not available today: Android, Apple Watch, Apple Health integration.
 
 ---
 
 ## 🛠️ Tech Stack
 
-This landing page is built with:
-- **Astro** — modern static site generator
-- **Tailwind CSS** — utility-first styling
-- **Minimal JavaScript** — lightweight & fast
-
-Based on the [AstroWind](https://github.com/onwidget/astrowind) template.
+- **Astro** (static output) + **Tailwind CSS 4**
+- Self-hosted fonts via **Fontsource** (Fraunces + Nunito), no third-party requests
+- Minimal JavaScript (`public/scripts/animations.js`, progressive enhancement)
 
 ---
 
 ## 🚀 Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
+npm run dev       # dev server
+npm run build     # production build in dist/
+npm run preview   # serve dist/
 ```
 
----
+### Updating content
+- Release notes, FAQ, links (App Store, Ko-fi, contact): `src/data/pacing-quest.js`
+- Images: put the source PNG in `public/images/pacingquest/`, then run `node scripts/optimize-images.mjs`
+- Social image: `scripts/og-image.html` (screenshot it at 1200×630 into `public/images/pacingquest/og-pacing-quest.jpg`)
 
-## 🌍 Language
-
-The app and landing page are currently in **French** 🇫🇷, with plans for multilingual support.
+### ⚠️ Deployment
+`.github/workflows/main.yml` builds and publishes to Cloudflare Pages (`branch: main`) **only on pushes to `main`**: feature branches are never deployed.
 
 ---
 
 ## 💬 About the Creator
 
-Built by **Anthony Da Cruz** ([anthony-dacruz.com](https://anthony-dacruz.com)) — someone who understands chronic illness firsthand and wanted to create a tool that respects privacy while empowering patients.
-
-If you're dealing with chronic fatigue, Long COVID, or similar conditions, PacingQuest is designed **for you**, **by someone who gets it**.
-
----
+Built by **Anthony Da Cruz** ([anthony-dacruz.com](https://anthony-dacruz.com)), an independent developer who lives with Long COVID.
 
 ## 📧 Contact
 
-Questions or feedback? Reach out at [me@anthony-dacruz.com](mailto:me@anthony-dacruz.com)
+Questions or feedback? [me@anthony-dacruz.com](mailto:me@anthony-dacruz.com)
 
 ---
 
-*"La santé, c'est privée."*
+*"La santé, c'est privé."*

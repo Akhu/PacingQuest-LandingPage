@@ -1,44 +1,20 @@
 ---
 export const prerender = true;
-import BaseLayout from './BaseLayout.astro'
-const { frontmatter, headings } = Astro.props
-const dateAsDate = new Date(frontmatter.pubDate)
+import PEMFlowLayout from './PEMFlowLayout.astro';
+import { SITE_NAME } from '../data/pacing-quest.js';
+
+const { frontmatter } = Astro.props;
 ---
-<BaseLayout pageTitle={frontmatter.title} metaDescription={frontmatter.description} metaTags={ frontmatter.tags }>
 
-  <div itemscope itemtype="https://schema.org/Legislation">
-    <div class="prose prose-zinc prose-h1:leading-relaxed dark:prose-invert mb-10 mx-auto flex flex-col max-w-prose">
-      <h1 itemprop="name" class="font-title">{frontmatter.title}</h1>
-        <div class="space-y-2">
-          <div class="flex flex-row align-baseline justify-between">
-            <span itemprop="datePublished">{dateAsDate.toLocaleDateString('fr')}</span> </div>
-          </div>
-        <div class={`flex flex-col px-4 py-1 rounded-xl bg-slate-100 dark:bg-zinc-800 dark:text-zinc-300`}>
-          <p><em>{frontmatter.description}</em></p>
-        </div>
-      </div>
+<PEMFlowLayout title={`${frontmatter.title} – ${SITE_NAME}`} description={frontmatter.seoDescription ?? frontmatter.description}>
+  <article class="px-4 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
+    <header class="mx-auto mb-10 max-w-prose">
+      <h1 class="mb-4 text-4xl font-semibold text-gray-900 md:text-5xl">{frontmatter.title}</h1>
+      <p class="rounded-2xl bg-white/70 px-4 py-3 text-gray-600 ring-1 ring-inset ring-gray-200">{frontmatter.description}</p>
+    </header>
+
+    <div class="prose prose-lg mx-auto prose-headings:font-title prose-headings:text-gray-900 prose-a:text-indigo-700 prose-strong:text-gray-900">
+      <slot />
     </div>
-
-
-    <article itemprop="articleBody"  class="
-    break
-    prose
-    prose-slate
-
-    prose-img:mx-auto
-    prose-p:font-sans
-    prose-headings:font-sans
-    prose-headings:tracking-wide
-    prose-ul:font-sans
-
-    prose-img:shadow-xl
-    dark:prose-img:border-zinc-800
-    dark:prose-img:border-2
-    prose-img:rounded-xl
-
-    dark:prose-invert
-
-    mx-auto">
-    <slot />
   </article>
-</BaseLayout>
+</PEMFlowLayout>

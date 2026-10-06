@@ -1,77 +1,86 @@
 ---
-import "../styles/global.css";
-const { pageTitle, metaDescription } = Astro.props;
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/nunito';
+import '../styles/global.css';
+import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
+import nunitoLatin from '@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2?url';
+import SiteNav from '../components/pemflow/SiteNav.astro';
+import Footer from '../components/pemflow/Footer.astro';
+import { SITE_NAME, CREATOR, OG_IMAGE } from '../data/pacing-quest.js';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "Pacing Quest",
-  "description": "Application gratuite de suivi des symptômes pour les patients atteints de fatigue chronique, EM/SFC, Covid Long et syndromes post-viraux",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "iOS",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "ratingCount": "100"
-  }
-};
+export interface Props {
+  title: string;
+  description: string;
+  jsonLd?: object[];
+  noindex?: boolean;
+}
+
+const { title, description, jsonLd = [], noindex = false } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(OG_IMAGE.src, Astro.site).href;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="author" content={CREATOR.name} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#fdf8f2" />
+    <!-- iOS Safari smart banner pointing to the App Store listing -->
+    <meta name="apple-itunes-app" content="app-id=6499503099" />
 
     <!-- Progressive enhancement: only hide scroll-reveal content when JS is alive -->
     <script is:inline>document.documentElement.classList.add('js')</script>
 
-    <!-- SEO Meta Tags -->
-    <title>{pageTitle || "Pacing Quest - Application gratuite de gestion de la fatigue chronique et EM/SFC"}</title>
-    <meta name="description" content={metaDescription || "Pacing Quest est l'application 100% gratuite et privée pour suivre vos symptômes de fatigue chronique, EM/SFC, Covid Long et adapter votre rythme de vie. Par les patients, pour les patients."} />
-    <meta name="keywords" content="fatigue chronique, EM/SFC, Covid Long, pacing, malaise post-effort, encéphalomyélite myalgique, syndrome de fatigue chronique, suivi symptômes, application santé gratuite" />
-    <meta name="author" content="Anthony Da Cruz" />
-    <link rel="canonical" href="https://pacing.quest" />
+    <!-- Self-hosted fonts (no third-party request) -->
+    <link rel="preload" href={nunitoLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={frauncesLatin} as="font" type="font/woff2" crossorigin />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pacing.quest" />
-    <meta property="og:title" content="Pacing Quest - La quête vers la guérison" />
-    <meta property="og:description" content="L'application gratuite par et pour les patients atteints de fatigue chronique, EM/SFC ou Covid Long. Suivez vos symptômes en toute confidentialité." />
-    <meta property="og:image" content="https://pacing.quest/og-image.jpg" />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="Pacing Quest" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content={String(OG_IMAGE.width)} />
+    <meta property="og:image:height" content={String(OG_IMAGE.height)} />
+    <meta property="og:image:alt" content={OG_IMAGE.alt} />
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://pacing.quest" />
-    <meta name="twitter:title" content="Pacing Quest - La quête vers la guérison" />
-    <meta name="twitter:description" content="L'app gratuite pour suivre ses symptômes de fatigue chronique et adapter son rythme de vie." />
-    <meta name="twitter:image" content="https://pacing.quest/og-image.jpg" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={OG_IMAGE.alt} />
 
-    <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-
-    <!-- Fonts — warm, healing-oriented pairing: Fraunces (display) + Nunito (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-
-    <!-- Theme color for mobile browsers -->
-    <meta name="theme-color" content="#c14f26" />
+    {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
   </head>
   <body class="antialiased">
+    <a href="#contenu" class="skip-link">Aller au contenu</a>
     <div id="scroll-progress" aria-hidden="true"></div>
-    <slot />
+    <SiteNav />
+    <main id="contenu" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
 
-    <!-- Scroll animations script -->
-    <script is:inline src="/scripts/animations.js"></script>
+    <script is:inline src="/scripts/animations.js" defer></script>
   </body>
 </html>

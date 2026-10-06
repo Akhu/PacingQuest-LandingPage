@@ -1,0 +1,79 @@
+<!doctype html>
+<!--
+  Template of the social sharing image (public/images/pacingquest/og-pacing-quest.jpg).
+  Open it in a browser with a 1200×630 viewport (from the repo root, after `npm install`)
+  and take a screenshot to regenerate the JPEG.
+-->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: 'Fraunces';
+      src: url(../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2) format('woff2');
+      font-weight: 100 900;
+    }
+    @font-face {
+      font-family: 'Nunito';
+      src: url(../node_modules/@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2) format('woff2');
+      font-weight: 200 1000;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body {
+      position: relative;
+      font-family: 'Nunito', sans-serif;
+      color: #29231e;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(232, 119, 101, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 82% 22%, rgba(217, 136, 29, 0.26) 0%, transparent 45%),
+        radial-gradient(circle at 60% 95%, rgba(193, 79, 38, 0.16) 0%, transparent 50%),
+        linear-gradient(180deg, #fdeede 0%, #fdf8f2 70%);
+      display: flex;
+      align-items: center;
+      padding: 0 64px;
+    }
+    .copy { width: 560px; position: relative; z-index: 2; }
+    .brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+    .brand img { width: 72px; height: 72px; }
+    .brand span { font-family: 'Fraunces', serif; font-weight: 600; font-size: 40px; font-variation-settings: 'opsz' 72; }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 650;
+      font-size: 68px;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      font-variation-settings: 'opsz' 144;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #a03e20, #a52f22, #9c4d15);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    p { margin-top: 24px; font-size: 26px; line-height: 1.35; color: #564a40; font-weight: 600; }
+    ul { list-style: none; padding: 0; display: flex; gap: 10px; margin-top: 28px; }
+    li { background: rgba(255, 255, 255, 0.8); border: 1px solid #e6dccf; border-radius: 999px; padding: 8px 18px; font-size: 20px; font-weight: 700; color: #3c342d; }
+    .visual { position: absolute; right: -30px; top: 50%; transform: translateY(-50%); width: 640px; z-index: 1; }
+    .visual img { width: 100%; height: auto; filter: drop-shadow(0 30px 40px rgba(60, 30, 20, 0.25)); }
+  </style>
+</head>
+<body>
+  <div class="copy">
+    <div class="brand">
+      <img src="../public/images/pacingquest/optimized/logo-128.webp" alt="" />
+      <span>Pacing Quest</span>
+    </div>
+    <h1>Suivez vos symptômes <em>à votre rythme</em></h1>
+    <p>Journal de suivi quotidien pour iPhone : pacing, EM/SFC, Covid long.</p>
+    <ul>
+      <li>Gratuite</li>
+      <li>Sans compte</li>
+      <li>Données sur l'iPhone</li>
+    </ul>
+  </div>
+  <div class="visual">
+    <img src="../public/images/pacingquest/optimized/hero-960.webp" alt="" />
+  </div>
+</body>
+</html>
